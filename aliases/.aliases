@@ -1,0 +1,113 @@
+# Bash
+alias ag="alias | rg"                                                     # Find alias
+alias uel='find . -type f -exec dos2unix {} \;'
+
+# IDE
+alias nv="nvim"
+alias code="code --profile VSCode"                                        # VSCode default profile
+alias codium="codium --profile VSCodium"                                  # VSCodium default profile
+
+# Project
+alias init="~/sh/init.sh"                                                 # Initialize project
+alias re="bash reset.sh"                                                  # Reset project
+alias r="bash run.sh"                                                     # Run project
+alias run="re && r"                                                       # Reset & run project
+
+# Docker
+alias de="docker exec -it"                                                # Run command in docker container
+alias dc="docker compose config"                                          # Check docker config
+alias dr="docker compose up -d"                                           # Turn on docker services
+alias dk="docker compose down --rmi all"                                  # Shutdown docker services
+
+alias dp="echo y | docker system prune"                                   # Prune docker system
+alias dpb="docker builder prune"                                          # Prune docker builds
+alias dcp="docker compose pull"                                           # Pull all compose images
+
+# Git
+alias gl="git log --oneline"                                              # Git log
+alias gf="git log --all --graph"                                          # Git log verbose
+alias glf="git log --oneline --all --graph"                               # Git log simple verbose
+alias gn='echo $(basename `git rev-parse --show-toplevel`).git'           # Get current git repo name
+
+alias gv="git remote -v"                                                  # Show verbose remote
+alias gprivate='git remote add origin'                                    # Add private remote
+alias gpublic='git remote add portfolio'                                  # Add public remote
+
+alias gs="git status --short"                                             # Git status
+alias ga="git add ."                                                      # Git add changes
+alias gc="git commit -m"                                                  # Git commit
+alias gd="git diff --compact-summary HEAD~1"                              # Git diff last commit
+
+alias gp="git push"                                                       # Git push
+alias gpf="git push -f"                                                   # Git push force
+alias gr="git rebase -i"                                                  # Git rebase (gr head~#)
+
+alias gac="ga && gc"                                                      # Git add and commit
+alias g1="gac 'Initial Commit'"                                           # Git initial commit
+alias gam="ga && git commit --amend --no-edit"                            # Git amend changes
+alias gmc="ga && git commit --amend --no-edit && git gc"                  # Git amend changes & clean git
+alias gap="gmc && gpf"                                                    # Git amend and force push
+alias gu="gp -u origin"                                                   # Set upstream for new branch
+alias gg="git pull"							                              # Pull latest changes into repo	
+alias gftc="git fetch"                      							  # Fetch latest changes 
+
+alias gitcb="code /etc/profile.d/git-prompt.sh"                           # Git bash edit
+alias gcount="git rev-list --count --all"                                 # Git commit count
+alias ghc="git remote set-head origin -d"                                 # Clear remote head
+alias gb="git branch"                                                     # Show git branches
+
+# System
+alias ls='ls --color=auto'                                                # Colors ls      
+alias cls="clear"                                                         # Habit accommodation
+alias size="du -hd 1 . | sort -hr"                                        # List folder sizes
+alias k="exit 0"                                                          # Close terminal
+alias diffs="diff -y --suppress-common-lines"                             # Show deferences in columns
+alias keygen="ssh-keygen -t ed25519"                                      # Create new ssh key using ed25519
+
+alias distro='lsb_release -d'                                             # Show Distro (Alt)
+alias os='rg ^ID= /etc/os-release | cut -d "=" -f 2'                      # Show Distribution
+
+# Python
+alias python3="python"                                                    # Windows alias
+alias py="python3"                                                        # Python3 abbreviation
+
+alias pipr="pip install -r"                                               # Install from file
+alias pipf="pip freeze -l"                                                # Show pip packages
+alias pipl="pip list"                                                     # List pip packages
+alias pipup="python3 -m pip install --upgrade pip"                        # Upgrade pip
+
+alias venv="source .venv/Scripts/activate"                                # Use venv (windows)
+alias venvnew="python3 -m venv .venv"                                     # Create venv
+alias venvls="find -type d -name '*.venv*'"                               # Show all venv
+alias venvdel='find -type d -name "*.venv*" -exec rm -rf {} \;'           # Delete all venv
+
+alias pyclear='find -type d -name "*pycache*" -exec rm -rf {} \;'         # Delete all pycache
+
+# Javascript
+alias nodedel='find -type d -name "*node_modules*" -exec rm -rf {} \;'    # Delete all node_modules
+alias sveltedel='find -type d -name "*.svelte*" -exec rm -rf {} \;'       # Delete all .svelte
+
+# Databases
+alias redis="de redis redis-cli -h localhost"                             # Use DB CLI for redis in docker
+alias mongo="de mongo mongosh -u admin -p "                               # Use DB CLI for mongo in docker
+alias mysql="de mysql mysql -h localhost -u root  -p "                    # Use DB CLI for mysql in docker
+alias pgsql="de postgres psql -h localhost -p 5432 -d postgres -U admin"  # Use DB CLI for postgres in docker
+
+# Fuzzy Finder
+alias fzp="fzf --preview='bat --color=always {}'"
+alias zls='zellij attach $(zellij ls | fzf --height=10 --ansi | cut -d " " -f 1)'
+alias lswake='bat /proc/acpi/wakeup | rg enabled | cut -d " " -f4- | cut -d":" -f3- | fzf --preview-window wrap --height=10 --wrap --preview="lspci | rg {}"'
+
+# Package Manager
+alias show="apt show"                                                           # Packages Description
+alias get="sudo apt install"                                                    # Install Packages
+alias update="sudo apt update && sudo apt upgrade -y && sudo apt autoremove"    # Update Packages
+
+alias show="nala show"                                                          # Packages Description
+alias get="sudo nala install"                                                   # Install Packages
+alias update="sudo nala update && sudo nala upgrade -y && sudo nala autoremove" # Update Packages
+
+alias show="pacman -Ss"                                                         # Packages Description
+alias get="sudo pacman -S"                                                      # Install Packages
+alias update="sudo pacman -Syu"                                                 # Update Packages
+
