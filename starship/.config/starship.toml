@@ -1,0 +1,206 @@
+"$schema" = 'https://starship.rs/config-schema.json'
+
+format = """
+[ ](bg:bg_base)\
+$os\
+$username\
+$sudo\
+[](fg:bg_base bg:bg_emphasis)\
+$directory\
+[](fg:bg_emphasis bg:bg_accent)\
+$git_branch\
+$git_status\
+[](fg:bg_accent bg:bg_subtle)\
+$c\
+$rust\
+$golang\
+$nodejs\
+$php\
+$java\
+$kotlin\
+$haskell\
+$python\
+[](fg:bg_subtle)\
+$fill\
+[](fg:bg_base)\
+$status\
+$cmd_duration\
+$line_break\
+$character
+"""
+
+palette = 'pastel'
+
+[palettes.catppuccin_mocha]
+rosewater = "#f5e0dc"
+flamingo = "#f2cdcd"
+pink = "#f5c2e7"
+mauve = "#cba6f7"
+red = "#f38ba8"
+maroon = "#eba0ac"
+peach = "#fab387"
+yellow = "#f9e2af"
+green = "#a6e3a1"
+teal = "#94e2d5"
+sky = "#89dceb"
+sapphire = "#74c7ec"
+blue = "#89b4fa"
+lavender = "#b4befe"
+text = "#cdd6f4"
+subtext1 = "#bac2de"
+subtext0 = "#a6adc8"
+overlay2 = "#9399b2"
+overlay1 = "#7f849c"
+overlay0 = "#6c7086"
+surface2 = "#585b70"
+surface1 = "#45475a"
+surface0 = "#313244"
+base = "#1e1e2e"
+mantle = "#181825"
+crust = "#11111b"
+
+[palettes.pastel]
+bg_base = "#313244"
+bg_emphasis = "#89b4fa"
+bg_accent = "#a6e3a1"
+bg_subtle = "#94e2d5"
+
+txt_base = "#cdd6f4"
+txt_emphasis = "#1e1e2e"
+txt_accent = "#181825"
+txt_subtle = "#11111b"
+
+color_error = "#f38ba8"
+color_warning = "#f9e2af"
+color_info = "#89b4fa"
+color_success = "#a6e3a1"
+
+[fill]
+symbol = " "
+
+[os]
+disabled = false
+style = "fg:txt_base bg:bg_base"
+
+[os.symbols]
+Windows = "󰍲"
+Ubuntu = "󰕈"
+SUSE = ""
+Raspbian = "󰐿"
+Mint = "󰣭"
+Macos = "󰀵"
+Manjaro = ""
+Linux = "󰌽"
+Gentoo = "󰣨"
+Fedora = "󰣛"
+Alpine = ""
+Amazon = ""
+Android = ""
+Arch = "󰣇"
+Artix = "󰣇"
+EndeavourOS = ""
+CentOS = ""
+Debian = "󰣚"
+Redhat = "󱄛"
+RedHatEnterprise = "󱄛"
+Pop = ""
+
+[username]
+show_always = true
+style_user = "fg:txt_base bg:bg_base"
+style_root = "fg:txt_base bg:bg_base"
+format = '[ $user ]($style)'
+
+[sudo]
+disabled = false
+style = "fg:txt_base bg:bg_base"
+format = '[$symbol]($style)'
+symbol = '󱕵 '
+
+[directory]
+style = "fg:txt_emphasis bg:bg_emphasis"
+format = "[ $path ]($style)"
+
+[directory.substitutions]
+"Documents" = "󰈙 "
+"Downloads" = " "
+"Music" = "󰝚 "
+"Pictures" = " "
+"Developer" = "󰲋 "
+
+[git_branch]
+symbol = ""
+style = "bg:bg_accent"
+format = '[[ $symbol $branch ](fg:txt_accent bg:bg_accent)]($style)'
+
+[git_status]
+style = "bg:bg_accent"
+format = '[[($all_status$ahead_behind )](fg:txt_accent bg:bg_accent)]($style)'
+
+[status]
+disabled = false
+map_symbol = true
+style = 'bg:bg_base'
+symbol = '[✗](bold fg:color_error bg:bg_base)'
+sigint_symbol = '[󰜺](bold fg:color_warning bg:bg_base)'
+success_symbol = '[](bold fg:color_success bg:bg_base)'
+format = '[ $symbol  ]($style)'
+
+[cmd_duration]
+disabled = false
+min_time = 1_000
+style = "fg:txt_subtle bg:color_info"
+format = "[](bg:bg_base fg:color_info)[ $duration  ]($style)"
+
+[line_break]
+disabled = false
+
+[character]
+disabled = false
+success_symbol = '[ ](bold fg:color_success)'
+error_symbol = '[ ](bold fg:color_error)'
+
+[nodejs]
+symbol = ""
+style = "fg:txt_subtle bg:bg_subtle"
+format = '[ $symbol ]($style)'
+
+[c]
+symbol = " "
+style = "fg:txt_subtle bg:bg_subtle"
+format = '[ $symbol ]($style)'
+
+[rust]
+symbol = ""
+style = "fg:txt_subtle bg:bg_subtle"
+format = '[ $symbol ]($style)'
+
+[golang]
+symbol = ""
+style = "fg:txt_subtle bg:bg_subtle"
+format = '[ $symbol ]($style)'
+
+[php]
+symbol = ""
+style = "fg:txt_subtle bg:bg_subtle"
+format = '[ $symbol ]($style)'
+
+[java]
+symbol = " "
+style = "fg:txt_subtle bg:bg_subtle"
+format = '[ $symbol ]($style)'
+
+[kotlin]
+symbol = ""
+style = "fg:txt_subtle bg:bg_subtle"
+format = '[ $symbol ]($style)'
+
+[haskell]
+symbol = ""
+style = "fg:txt_subtle bg:bg_subtle"
+format = '[ $symbol ]($style)'
+
+[python]
+symbol = ""
+style = "fg:txt_subtle bg:bg_subtle"
+format = '[ $symbol ]($style)'
