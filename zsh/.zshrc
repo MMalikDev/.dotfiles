@@ -34,7 +34,9 @@ zinit light zsh-users/zsh-completions
 zinit light Aloxaf/fzf-tab
  
 # Keybindings
-bindkey -v # VIM Motion
+bindkey -v # VI Mode
+bindkey '^?' backward-delete-char
+
 bindkey '^[[A' history-substring-search-up
 bindkey '^[[B' history-substring-search-down
 bindkey '^n' history-search-forward
@@ -57,3 +59,4 @@ test -f ~/.aliases && . ~/.aliases
 # Load Completions
 autoload -Uz compinit
 compinit
+
