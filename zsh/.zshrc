@@ -34,13 +34,12 @@ zinit light zsh-users/zsh-completions
 zinit light Aloxaf/fzf-tab
  
 # Keybindings
-bindkey -v # VI Mode
-bindkey '^?' backward-delete-char
+bindkey -e
 
 bindkey '^[[A' history-substring-search-up
 bindkey '^[[B' history-substring-search-down
-bindkey '^n' history-search-forward
-bindkey '^p' history-search-backward
+bindkey '^n' history-substring-search-up
+bindkey '^p' history-substring-search-down
 
 # Completion Styling
 zstyle ':completion:*' matcher-list 'm:{a-z}={A-Za-z}'
