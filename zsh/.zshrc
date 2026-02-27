@@ -49,7 +49,7 @@ zstyle ':fzf-tab:complete:cd:*' fzf-preview 'ls -A --color $realpath'
 zstyle ':fzf-tab:complete:ls:*' fzf-preview 'ls -A --color $realpath'
 
 # Shell Intergration
-eval "$(starship init zsh)"
+[[ "$TTY" != /dev/tty* ]] && eval "$(starship init zsh)"
 eval "$(fzf --zsh)"
 
 # Aliases 
