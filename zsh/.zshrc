@@ -45,15 +45,15 @@ bindkey '^p' history-substring-search-down
 zstyle ':completion:*' matcher-list 'm:{a-z}={A-Za-z}'
 zstyle ':completion:*' list-colors "${(s.:.)LS_COLORS}"
 zstyle ':completion:*' menu no
-zstyle ':fzf-tab:complete:cd:*' fzf-preview 'exa -1As type --icons $realpath'
-zstyle ':fzf-tab:complete:ls:*' fzf-preview 'exa -1As type --icons $realpath'
-zstyle ':fzf-tab:complete:z:*' fzf-preview 'exa -1As type --icons $realpath'
-zstyle ':fzf-tab:complete:exa:*' fzf-preview 'exa -1As type --icons $realpath'
+zstyle ':fzf-tab:complete:cd:*' fzf-preview 'exa -1As type --icons --color=always $realpath'
+zstyle ':fzf-tab:complete:ls:*' fzf-preview 'exa -1As type --icons --color=always $realpath'
+zstyle ':fzf-tab:complete:z:*' fzf-preview 'exa -1As type --icons --color=always $realpath'
+zstyle ':fzf-tab:complete:exa:*' fzf-preview 'exa -1As type --icons --color=always $realpath'
 
 # Shell Intergration
-[[ "$TTY" != /dev/tty* ]] && eval "$(starship init zsh)"
-eval "$(zoxide init zsh)"
 eval "$(fzf --zsh)"
+eval "$(zoxide init zsh)"
+[[ "$TTY" != /dev/tty* ]] && eval "$(starship init zsh)"
 
 # Aliases 
 test -f ~/.aliases && . ~/.aliases
