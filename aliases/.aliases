@@ -57,7 +57,7 @@ alias ghc="git remote set-head origin -d"                                 # Clea
 alias gb="git branch"                                                     # Show git branches
 
 # System
-alias ls='exa'                                                		  # Better ls
+alias ls='eza'                                                		  # Better ls
 alias cd='z'                                                		  # Better cd
 alias cls="clear"                                                         # Habit accommodation
 alias size="du -hd 1 . | sort -hr"                                        # List folder sizes
