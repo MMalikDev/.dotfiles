@@ -57,7 +57,8 @@ alias ghc="git remote set-head origin -d"                                 # Clea
 alias gb="git branch"                                                     # Show git branches
 
 # System
-alias ls='ls --color=auto'                                                # Colors ls      
+alias ls='exa'                                                		  # Better ls
+alias cd='z'                                                		  # Better cd
 alias cls="clear"                                                         # Habit accommodation
 alias size="du -hd 1 . | sort -hr"                                        # List folder sizes
 alias k="exit 0"                                                          # Close terminal

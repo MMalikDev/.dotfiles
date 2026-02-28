@@ -120,13 +120,16 @@ symbol = '󱕵 '
 [directory]
 style = "fg:txt_emphasis bg:bg_emphasis"
 format = "[ $path ]($style)"
+truncate_to_repo = false
+truncation_length = 3
 
 [directory.substitutions]
-"Documents" = "󰈙 "
-"Downloads" = " "
-"Music" = "󰝚 "
-"Pictures" = " "
-"Developer" = "󰲋 "
+"Documents" = "󰈙"
+"Downloads" = ""
+"Music" = "󰝚"
+"Pictures" = ""
+"Developer" = "󰲋"
+"Projects" = ""
 
 [git_branch]
 symbol = ""
