@@ -38,7 +38,6 @@ return {
     opts = {
       keymap = { preset = 'enter' },
       signature = { enabled = true },
-      snippets = { preset = 'luasnip' },
       appearance = { nerd_font_variant = 'mono' },
       fuzzy = { implementation = 'prefer_rust_with_warning' },
       completion = { documentation = { auto_show = true, auto_show_delay_ms = 100 } },
@@ -64,6 +63,7 @@ return {
             },
           },
         },
+        -- snippets = { preset = 'luasnip' },
       },
     },
   },
