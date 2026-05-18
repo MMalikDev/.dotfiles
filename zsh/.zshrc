@@ -35,11 +35,31 @@ zinit light Aloxaf/fzf-tab
  
 # Keybindings
 bindkey -e
+bindkey "^L" clear-screen
+
+bindkey '^[[D' backward-char
+bindkey '^[[C' forward-char
+
+bindkey '^[[1;5D' backward-word
+bindkey '^[[1;5C' forward-word
+
+bindkey '^[[H' beginning-of-line
+bindkey '^[[F' end-of-line
+
+bindkey '^[[1;5B' beginning-of-line
+bindkey '^[[1;5A' end-of-line
+
+bindkey '^J' kill-region
+bindkey '^K' kill-line
+
+bindkey '^?' backward-delete-char
+bindkey '^[[3~' delete-char
+
+bindkey '^H' backward-kill-word
+bindkey '^[[3;5~' kill-word
 
 bindkey '^[[A' history-substring-search-up
 bindkey '^[[B' history-substring-search-down
-bindkey '^p' history-substring-search-up
-bindkey '^n' history-substring-search-down
 
 # Completion Styling
 zstyle ':completion:*' matcher-list 'm:{a-z}={A-Za-z}'
