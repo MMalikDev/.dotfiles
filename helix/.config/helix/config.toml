@@ -21,6 +21,9 @@ select = "underline"
 
 [editor.file-picker]
 hidden = false
+parents = false
+git-ignore = false
+follow-symlinks = true
 
 [editor.search]
 wrap-around = true
@@ -38,7 +41,6 @@ esc = ["collapse_selection", "keep_primary_selection"]
 tab = ":buffer-next"
 S-tab = ":buffer-previous"
 "\\" = "file_explorer_in_current_directory"
-C-s = ":w"
 C-S-s = ":w"
 
 [keys.normal.space]

@@ -4,7 +4,7 @@ alias uel='find . -type f -exec dos2unix {} \;'
 
 # IDE
 alias nv="nvim"
-alias hx='helix $(fzp -m)'
+alias hx='helix .'
 alias code="code --profile VSCode"                                        # VSCode default profile
 alias codium="codium --profile VSCodium"                                  # VSCodium default profile
 
