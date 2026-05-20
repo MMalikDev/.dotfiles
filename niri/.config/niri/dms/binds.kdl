@@ -138,14 +138,14 @@ binds {
 
 
     // === Move Workspace to Monitor ===
-    Mod+Shift+Ctrl+ALT+Left  { move-workspace-to-monitor-left; }
-    Mod+Shift+Ctrl+ALT+Down  { move-workspace-to-monitor-down; }
-    Mod+Shift+Ctrl+ALT+Up    { move-workspace-to-monitor-up; }
-    Mod+Shift+Ctrl+ALT+Right { move-workspace-to-monitor-right; }
-    Mod+Shift+Ctrl+ALT+H     { move-workspace-to-monitor-left; }
-    Mod+Shift+Ctrl+ALT+J     { move-workspace-to-monitor-down; }
-    Mod+Shift+Ctrl+ALT+K     { move-workspace-to-monitor-up; }
-    Mod+Shift+Ctrl+ALT+L     { move-workspace-to-monitor-right; }
+    Mod+Shift+ALT+Left  { move-workspace-to-monitor-left; }
+    Mod+Shift+ALT+Down  { move-workspace-to-monitor-down; }
+    Mod+Shift+ALT+Up    { move-workspace-to-monitor-up; }
+    Mod+Shift+ALT+Right { move-workspace-to-monitor-right; }
+    Mod+Shift+ALT+H     { move-workspace-to-monitor-left; }
+    Mod+Shift+ALT+J     { move-workspace-to-monitor-down; }
+    Mod+Shift+ALT+K     { move-workspace-to-monitor-up; }
+    Mod+Shift+ALT+L     { move-workspace-to-monitor-right; }
 
     // === Workspace Navigation ===
     Mod+Page_Down      { focus-workspace-down; }
