@@ -1,5 +1,5 @@
 [core]
-	editor = nvim
+	editor = helix
 	autocrlf = false
 	compression = 9
 	whitespace = error
