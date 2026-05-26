@@ -120,8 +120,7 @@ keys.add {
 keys.add {
   {
     mode = { 'i', 'x', 'n', 's' },
-    { '<C-s>', '<cmd>w<cr><esc>', desc = 'Save File' },
-    { '<C-S-s>', '<cmd>w<cr><esc>', desc = 'Save File' },
+    { '<C-w>', '<cmd>w1<cr><esc>', desc = 'Save File' },
   },
   {
     mode = { 'n', 'v', 't' },

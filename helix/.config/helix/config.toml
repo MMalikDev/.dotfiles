@@ -41,7 +41,6 @@ C-w = ":w!"
 y = ["yank", ":clipboard-yank"]
 
 [keys.normal]
-C-m = "save_selection"
 C-r = [":reload-all"]
 C-w = ":w!"
 D = "@vgld"
