@@ -1,4 +1,5 @@
+**/.devcontainer
+**/dms/*
 **/key
 **/key.*
-**/dms/*
 **/*lock.*

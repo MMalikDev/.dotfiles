@@ -1,11 +1,3 @@
-[core]
-	editor = helix
-	autocrlf = false
-	compression = 9
-	whitespace = error
-	preloadindex = true
-[init]
-	defaultBranch = main
 [user]
-	name = Mohammed Malik
 	email = mohammedmalik.dev+github@gmail.com
+	name = Mohammed Malik
