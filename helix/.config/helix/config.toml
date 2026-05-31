@@ -36,6 +36,9 @@ character = "|"
 render = true
 skip-levels = 1
 
+[keys.insert]
+C-w = ":w!"
+
 [keys.select]
 C-w = ":w!"
 y = ["yank", ":clipboard-yank"]
@@ -52,7 +55,7 @@ Y = "@vgly"
 y = ["yank", ":clipboard-yank"]
 
 [keys.normal.space]
-C-c = ":open ~/.config/helix/config.toml"
+C-c = ":config-open"
 "=" = ":format"
 space = "buffer_picker"
 
@@ -68,5 +71,6 @@ q = ":q"
 s = ":w"
 w = ":wq"
 
-[keys.insert]
-C-w = ":w!"
+[keys.normal.space.l]
+g = [":new", ":insert-output lazygit", ":buffer-close!", ":redraw"]
+d = [":new", ":insert-output lazydocker", ":buffer-close!", ":redraw"]
