@@ -611,7 +611,7 @@
       "trigger": "?"
     }
   },
-  "clipboardEnterToPaste": true,
+  "clipboardEnterToPaste": false,
   "launcherPluginVisibility": {},
   "launcherPluginOrder": [],
   "configVersion": 5
