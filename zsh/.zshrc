@@ -67,6 +67,8 @@ zstyle ':completion:*' list-colors "${(s.:.)LS_COLORS}"
 zstyle ':completion:*' menu no
 zstyle ':fzf-tab:complete:cd:*' fzf-preview 'eza -1HAs type --icons --color=always $realpath'
 zstyle ':fzf-tab:complete:ls:*' fzf-preview 'eza -1HAs type --icons --color=always $realpath'
+zstyle ':fzf-tab:complete:cp:*' fzf-preview 'eza -1HAs type --icons --color=always $realpath'
+zstyle ':fzf-tab:complete:mv:*' fzf-preview 'eza -1HAs type --icons --color=always $realpath'
 zstyle ':fzf-tab:complete:z:*' fzf-preview 'eza -1HAs type --icons --color=always $realpath'
 zstyle ':fzf-tab:complete:eza:*' fzf-preview 'eza -1HAs type --icons --color=always $realpath'
 
