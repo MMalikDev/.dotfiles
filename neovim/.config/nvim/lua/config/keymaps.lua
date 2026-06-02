@@ -63,6 +63,10 @@ keys.add {
   },
   { { 'x' }, { '<', '<gv', desc = 'Indent Left' }, { '>', '>gv', desc = 'Indent Right' } },
 }
+
+-- Mass replace string in a file
+-- vim.keymap.set('n', '<leader>r', [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]], { silent = false , desc = "Replace Select in Buffer"}
+
 -- -- better up/down
 keys.add {
   {

@@ -23,7 +23,6 @@ opt.completeopt = 'menu,menuone,noselect'
 opt.conceallevel = 2 -- Hide * markup for bold and italic, but not markers with substitutions
 opt.confirm = true -- Confirm to save changes before exiting modified buffer
 opt.cursorline = true -- Enable highlighting of the current line
-opt.expandtab = true -- Use spaces instead of tabs
 opt.fillchars = {
   foldopen = '',
   foldclose = '',
@@ -39,7 +38,7 @@ opt.fillchars = {
 -- opt.formatoptions = 'jcroqlnt' -- tcqj
 opt.foldtext = ''
 opt.foldlevel = 99
-opt.foldmethod = 'indent'
+-- opt.foldmethod = 'indent'
 
 opt.grepformat = '%f:%l:%c:%m'
 opt.grepprg = 'rg --vimgrep'
@@ -82,7 +81,8 @@ opt.sessionoptions = {
 }
 
 opt.shiftround = true -- Round indent
-opt.shiftwidth = 4 -- Size of an indent
+opt.shiftwidth = 2 -- Size of an indent
+opt.expandtab = true -- Use spaces instead of tabs
 opt.shortmess:append { W = true, I = true, c = true, C = true }
 opt.sidescrolloff = 8 -- Columns of context
 opt.signcolumn = 'yes' -- Always show the signcolumn, otherwise it would shift the text each time
@@ -92,7 +92,9 @@ opt.splitkeep = 'screen'
 opt.splitbelow = true -- Put new windows below current
 opt.splitright = true -- Put new windows right of current
 
-opt.tabstop = 4 -- Number of spaces tabs count for
+-- Number of spaces a tab represents
+vim.opt.tabstop = 2
+vim.opt.softtabstop = 2
 
 -- Enable undo/redo changes even after closing and reopening a file
 opt.undofile = true
