@@ -3,7 +3,7 @@ theme = "catppuccin_mocha"
 [editor]
 rulers = [74, 80, 100, 120, 160]
 line-number = "relative"
-bufferline = "multiple"
+bufferline = "always"
 auto-pairs = true
 color-modes = true
 completion-timeout = 5
@@ -42,9 +42,9 @@ C-w = ":w!"
 [keys.select]
 C-w = ":w!"
 y = ["yank", ":clipboard-yank"]
-C-A-y  = [
+C-A-y = [
   ":echo %sh{ echo '@%{buffer_name}#%{selection_line_start}-#L%{selection_line_end} %{selection}' | dms clipboard copy }",
-    ":echo \"Copied @%{buffer_name}#%{selection_line_start}-#L%{selection_line_end}\"",
+  ":echo \"Copied @%{buffer_name}#%{selection_line_start}-#L%{selection_line_end}\"",
 ]
 
 [keys.normal]
@@ -57,9 +57,9 @@ S-tab = ":buffer-previous"
 tab = ":buffer-next"
 Y = "@vgly"
 y = ["yank", ":clipboard-yank"]
-C-A-y  = [
+C-A-y = [
   ":echo %sh{ echo '@%{buffer_name}#%{selection_line_start}-#L%{selection_line_end} %{selection}' | dms clipboard copy }",
-    ":echo \"Copied @%{buffer_name}#%{selection_line_start}-#L%{selection_line_end}\"",
+  ":echo \"Copied @%{buffer_name}#%{selection_line_start}-#L%{selection_line_end}\"",
 ]
 
 [keys.normal.space]

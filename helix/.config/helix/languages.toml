@@ -1,351 +1,266 @@
-# # ------------------------------------------------------------------------
-# # Python
-# # ------------------------------------------------------------------------
-# [language-server]
-# ruff = { command = "ruff", args = ["server"] }
+# ------------------------------------------------------------------------
+# Default Configs
+# https://github.com/helix-editor/helix/blob/master/languages.toml
 
-# [[language]]
-# name = "python"
-# scope = "source.python"
-# injection-regex = "py(thon)?"
-# file-types = [
-#     "py",
-#     "pyi",
-#     "py3",
-#     "pyw",
-#     "ptl",
-#     "rpy",
-#     "cpy",
-#     "ipy",
-#     "pyt",
-#     { glob = ".python_history" },
-#     { glob = ".pythonstartup" },
-#     { glob = ".pythonrc" },
-#     { glob = "*SConstruct" },
-#     { glob = "*SConscript" },
-#     { glob = "*sconstruct" },
-# ]
-# shebangs = ["python", "uv"]
-# roots = ["pyproject.toml", "setup.py", "poetry.lock", "pyrightconfig.json"]
-# comment-token = "#"
-# language-servers = ["ty", "ruff", "jedi", "pylsp"]
-# # TODO: pyls needs utf-8 offsets
-# indent = { tab-width = 4, unit = "    " }
+# ------------------------------------------------------------------------
+# Language Servers
+# ------------------------------------------------------------------------
 
-# [[grammar]]
-# name = "python"
-# source = { git = "https://github.com/tree-sitter/tree-sitter-python", rev = "293fdc02038ee2bf0e2e206711b69c90ac0d413f" }
+[language-server.ty]
+command = "ty"
+args = ["server"]
 
-# # ------------------------------------------------------------------------
-# # Rust
-# # ------------------------------------------------------------------------
-# [language-server.rust-analyzer]
-# command = "rust-analyzer"
+[language-server.ruff]
+command = "ruff"
+args = ["server"]
 
-# [language-server.rust-analyzer.config]
-# inlayHints.bindingModeHints.enable = false
-# inlayHints.closingBraceHints.minLines = 10
-# inlayHints.closureReturnTypeHints.enable = "with_block"
-# inlayHints.discriminantHints.enable = "fieldless"
-# inlayHints.lifetimeElisionHints.enable = "skip_trivial"
-# inlayHints.typeHints.hideClosureInitialization = false
+[language-server.tombi]
+command = "tombi"
+args = ["lsp"]
 
-# [language-server.rust-analyzer.config.files]
-# watcher = "server"
+[language-server.rust-analyzer]
+command = "rust-analyzer"
+args = []
 
-# [[language]]
-# name = "rust"
-# scope = "source.rust"
-# injection-regex = "rs|rust"
-# file-types = ["rs"]
-# roots = ["Cargo.toml", "Cargo.lock"]
-# shebangs = ["rust-script", "cargo"]
-# auto-format = true
-# comment-tokens = ["//", "///", "//!"]
-# block-comment-tokens = [
-#     { start = "/*", end = "*/" },
-#     { start = "/**", end = "*/" },
-#     { start = "/*!", end = "*/" },
-# ]
-# language-servers = ["rust-analyzer"]
-# indent = { tab-width = 4, unit = "    " }
-# persistent-diagnostic-sources = ["rustc", "clippy"]
+# ------------------------------------------------------------------------
 
-# [language.auto-pairs]
-# '(' = ')'
-# '{' = '}'
-# '[' = ']'
-# '"' = '"'
-# '`' = '`'
+[language-server.bash-language-server]
+command = "bash-language-server"
+args = ["start"]
 
-# [language.debugger]
-# name = "lldb-dap"
-# transport = "stdio"
-# command = "lldb-dap"
+[language-server.yaml-language-server]
+command = "yaml-language-server"
+args = ["--stdio"]
 
-# [[language.debugger.templates]]
-# name = "binary"
-# request = "launch"
-# completion = [{ name = "binary", completion = "filename" }]
-# args = { program = "{0}" }
+[language-server.docker-langserver]
+command = "docker-langserver"
+args = ["--stdio"]
 
-# [[language.debugger.templates]]
-# name = "binary (terminal)"
-# request = "launch"
-# completion = [{ name = "binary", completion = "filename" }]
-# args = { program = "{0}", runInTerminal = true }
+# ------------------------------------------------------------------------
 
-# [[language.debugger.templates]]
-# name = "attach"
-# request = "attach"
-# completion = ["pid"]
-# args = { pid = "{0}" }
+[language-server.svelteserver]
+command = "svelteserver"
+args = ["--stdio"]
 
-# [[language.debugger.templates]]
-# name = "gdbserver attach"
-# request = "attach"
-# completion = [
-#     { name = "lldb connect url", default = "connect://localhost:3333" },
-#     { name = "file", completion = "filename" },
-#     "pid",
-# ]
-# args = { attachCommands = [
-#     "platform select remote-gdb-server",
-#     "platform connect {0}",
-#     "file {1}",
-#     "attach {2}",
-# ] }
+[language-server.biome-lsp-proxy]
+command = "biome"
+args = ["lsp-proxy"]
 
-# [[grammar]]
-# name = "rust"
-# source = { git = "https://github.com/tree-sitter/tree-sitter-rust", rev = "261b20226c04ef601adbdf185a800512a5f66291" }
+[language-server.typescript-language-server]
+command = "typescript-language-server"
+args = ["--stdio"]
 
-# # ------------------------------------------------------------------------
-# # Javascript & Typescript
-# # ------------------------------------------------------------------------
-# [language-server.typescript-language-server]
-# command = "typescript-language-server"
-# args = ["--stdio"]
-# config.hostInfo = "helix"
+[language-server.vscode-eslint-language-server]
+command = "vscode-eslint-language-server"
+args = ["--stdio"]
 
-# [language-server.typescript-language-server.config.typescript.inlayHints]
-# includeInlayEnumMemberValueHints = true
-# includeInlayFunctionLikeReturnTypeHints = true
-# includeInlayFunctionParameterTypeHints = true
-# includeInlayParameterNameHints = "all"
-# includeInlayParameterNameHintsWhenArgumentMatchesName = true
-# includeInlayPropertyDeclarationTypeHints = true
-# includeInlayVariableTypeHints = true
+# ------------------------------------------------------------------------
 
-# [language-server.typescript-language-server.config.javascript.inlayHints]
-# includeInlayEnumMemberValueHints = true
-# includeInlayFunctionLikeReturnTypeHints = true
-# includeInlayFunctionParameterTypeHints = true
-# includeInlayParameterNameHints = "all"
-# includeInlayParameterNameHintsWhenArgumentMatchesName = true
-# includeInlayPropertyDeclarationTypeHints = true
-# includeInlayVariableTypeHints = true
+[language-server.vscode-css-languageserver]
+command = "vscode-css-languageserver"
+args = ["--stdio"]
 
+[language-server.vscode-json-languageserver]
+command = "vscode-json-languageserver"
+args = ["--stdio"]
 
-# [[language]]
-# name = "javascript"
-# scope = "source.js"
-# injection-regex = "(js|javascript)"
-# language-id = "javascript"
-# file-types = [
-#     "js",
-#     "mjs",
-#     "cjs",
-#     "rules",
-#     "es6",
-#     "pac",
-#     "gs",
-#     { glob = ".node_repl_history" },
-#     { glob = "jakefile" },
-# ]
-# shebangs = ["node"]
-# roots = ["package.json", "jsconfig.json"]
-# comment-token = "//"
-# block-comment-tokens = { start = "/*", end = "*/" }
-# language-servers = ["typescript-language-server"]
-# indent = { tab-width = 2, unit = "  " }
+[language-server.vscode-html-languageserver]
+command = "vscode-html-languageserver"
+args = ["--stdio"]
 
-# [language.debugger]
-# name = "js-debug-dap"
-# transport = "tcp"
-# port-arg = "{} 127.0.0.1"
-# # args consisting of cmd (node) and path to adapter should be added to user's configuration
-# quirks = { absolute-paths = true }
+[language-server.tailwindcss-ls]
+command = "tailwindcss-languageserver"
+args = ["--stdio"]
 
-# [[language.debugger.templates]]
-# name = "source"
-# request = "launch"
-# completion = [{ name = "main", completion = "filename", default = "index.js" }]
-# args = { program = "{0}", skipFiles = ["<node_internals>/**"] }
+# ------------------------------------------------------------------------
 
-# [[grammar]]
-# name = "javascript"
-# source = { git = "https://github.com/tree-sitter/tree-sitter-javascript", rev = "3a837b6f3658ca3618f2022f8707e29739c91364" }
+[language-server.clangd]
+command = "clangd"
+args = []
 
-# [[language]]
-# name = "jsx"
+# ------------------------------------------------------------------------
+# Language
+# ------------------------------------------------------------------------
+[[language]]
+name = "python"
+auto-format = true
+language-servers = [
+  "ty",
+  "ruff",
+]
 
-# # ------------------------------------------------------------------------
-# # Svelte
-# # ------------------------------------------------------------------------
+[[language]]
+name = "toml"
+auto-format = true
+language-servers = ["tombi"]
 
-# # ------------------------------------------------------------------------
-# # HTML
-# # ------------------------------------------------------------------------
+[[language]]
+name = "rust"
+auto-format = true
+language-servers = ["rust-analyzer"]
 
-# # ------------------------------------------------------------------------
-# # CSS
-# # ------------------------------------------------------------------------
+# ------------------------------------------------------------------------
 
-# # ------------------------------------------------------------------------
-# # TOML
-# # ------------------------------------------------------------------------
+[[language]]
+name = "javascript"
+auto-format = true
+roots = [
+  "biome.json",
+  "biome.jsonc",
+  "package.json",
+  "jsconfig.json",
+  ".prettierrc",
+  ".prettierignore",
+  ".eslintrc",
+  ".eslintignore",
+]
+language-servers = [
+  { name = "typescript-language-server", except-features = ["format"] },
+  "biome-lsp-proxy",
+  "vscode-eslint-language-server"
+]
+formatter = { command = "prettier", args = ["--parser", "typescript"] }
 
-# # ------------------------------------------------------------------------
-# # YAML
-# # ------------------------------------------------------------------------
+[[language]]
+name = "typescript"
+auto-format = true
+roots = [
+  "biome.json",
+  "biome.jsonc",
+  "package.json",
+  "tsconfig.json",
+  ".prettierrc",
+  ".prettierignore",
+  ".eslintrc",
+  ".eslintignore",
+]
+language-servers = [
+  { name = "typescript-language-server", except-features = ["format"] },
+  "biome-lsp-proxy",
+  "vscode-eslint-language-server"
+]
+formatter = { command = "prettier", args = ["--parser", "typescript"] }
 
-# # ------------------------------------------------------------------------
-# # JSON
-# # ------------------------------------------------------------------------
+[[language]]
+name = "jsx"
+auto-format = true
+roots = [
+  "biome.json",
+  "biome.jsonc",
+  "package.json",
+  "jsconfig.json",
+  ".prettierrc",
+  ".prettierignore",
+  ".eslintrc",
+  ".eslintignore",
+]
+language-servers = [
+  { name = "typescript-language-server", except-features = ["format"] },
+  "biome-lsp-proxy",
+  "vscode-eslint-language-server"
+]
+formatter = { command = "prettier", args = ["--parser", "typescript"] }
 
-# # ------------------------------------------------------------------------
-# # Docker
-# # ------------------------------------------------------------------------
+[[language]]
+name = "tsx"
+auto-format = true
+roots = [
+  "biome.json",
+  "biome.jsonc",
+  "package.json",
+  "tsconfig.json",
+  ".prettierrc",
+  ".prettierignore",
+  ".eslintrc",
+  ".eslintignore",
+]
+language-servers = [
+  { name = "typescript-language-server", except-features = ["format"] },
+  "biome-lsp-proxy",
+  "vscode-eslint-language-server"
+]
+formatter = { command = "prettier", args = ["--parser", "typescript"] }
 
-# # ------------------------------------------------------------------------
-# # ------------------------------------------------------------------------
+[[language]]
+name = "svelte"
+auto-format = true
+language-servers = ["svelteserver"]
 
-# # Servers WIP
+# ------------------------------------------------------------------------
 
-# # [language-server.lua-language-server]
-# # command = "lua-language-server"
+[[language]]
+name = "bash"
+auto-format = true
+language-servers = ["bash-language-server"]
+formatter = { command = "shfmt" }
 
-# # [language-server.svelteserver]
-# # command = "svelteserver"
+[[language]]
+name = "yaml"
+auto-format = true
+language-servers = ["yaml-language-server"]
+formatter = { command = "prettier", args = ["--parser", "yaml"] }
 
-# # [language-server.clangd]
-# # command = "clangd"
+[[language]]
+name = "markdown"
+auto-format = true
+formatter = { command = "prettier", args = ["--parser", "markdown"] }
 
-# # [language-server.tombi]
-# # command = "tombi"
+# ------------------------------------------------------------------------
 
-# # [language-server.markdown-oxide]
-# # command = "markdown-oxide"
+[[language]]
+name = "css"
+auto-format = true
+language-servers = ["vscode-css-language-server"]
 
-# # [language-server.bash-language-server]
-# # command = "bash-language-server"
+[[language]]
+name = "json"
+auto-format = true
+language-servers = ["vscode-json-language-server"]
 
-# # [language-server.vscode-css-language-server]
-# # command = "vscode-css-language-server"
+[[language]]
+name = "html"
+auto-format = true
+language-servers = ["vscode-html-language-server"]
 
-# # [language-server.vscode-json-language-server]
-# # command = "vscode-json-language-server"
+[[language]]
+name = "docker-compose"
+auto-format = true
 
-# # [language-server.vscode-html-language-server]
-# # command = "vscode-html-language-server"
+# ------------------------------------------------------------------------
 
-# # [language-server.docker-compose-langserver]
-# # command = "docker-compose-langserver"
+[[language]]
+name = "c"
+auto-format = true
+language-servers = ["clangd"]
+# formatter = { command = "clang-format" }
 
-# # [language-server.yaml-language-server]
-# # command = "yaml-language-server"
+[[language]]
+name = "cpp"
+auto-format = true
+language-servers = ["clangd"]
+# formatter = { command = "clang-format" }
 
-# # [language-server.docker-langserver]
-# # command = "docker-langserver"
+[[language]]
+name = "jinja"
+auto-format = true
+# formatter = { command = "prettier", args = ["--parser", "jinja-template"] }
 
-# # [language-server.ansible-language-server]
-# # command = "ansible-language-server"
+[[language]]
+name = "nginx"
+auto-format = true
+# formatter = { command = "prettier", args = ["--parser", "nginx"] }
 
-# # [language-server.jq-lsp]
-# # command = "jq-lsp"
+[[language]]
+name = "sql"
+auto-format = true
+# formatter = { command = "prettier", args = ["--parser", "sql"] }
 
-# # [language-server.awk-language-server]
-# # command = "awk-language-server"
+[[language]]
+name = "prisma"
+auto-format = true
+# formatter = { command = "prettier", args = ["--parser", "prisma"] }
 
-# # Optional:
-# # [language-server.terraform-ls]
-# # command = "terraform-ls"
-
-# # [language-server.graphql-lsp]
-# # command = "graphql-lsp"
-
-# # [language-server.helm_ls]
-# # command = "helm_ls"
-
-
-# # -------------------------
-# # TODO
-# # -------------------------
-
-
-# # [[language]]
-# # name = "svelte"
-# # auto-format = true
-# # formatter = { command = "svelteserver", args = [] }
-# # language-servers = ["svelteserver"]
-
-# # [[language]]
-# # name = "toml"
-# # auto-format = true
-# # formatter = { command = "tombi", args = [] }
-# # language-servers = ["tombi"]
-
-# # [[language]]
-# # name = "yaml"
-# # auto-format = true
-# # formatter = { command = "yaml-language-server", args = [] }
-# # language-servers = ["yaml-language-server"]
-
-# # [[language]]
-# # name = "markdown"
-# # auto-format = true
-# # formatter = { command = "markdown-oxide", args = [] }
-# # language-servers = ["markdown-oxide"]
-
-# # [[language]]
-# # name = "json"
-# # auto-format = true
-# # formatter = { command = "vscode-json-language-server", args = [] }
-# # language-servers = ["vscode-json-language-server"]
-
-# # [[language]]
-# # name = "html"
-# # auto-format = true
-# # formatter = { command = "vscode-html-language-server", args = [] }
-# # language-servers = ["vscode-html-language-server"]
-
-# # [[language]]
-# # name = "css"
-# # auto-format = true
-# # formatter = { command = "vscode-css-language-server", args = [] }
-# # language-servers = ["vscode-css-language-server"]
-
-# # [[language]]
-# # name = "c"
-# # auto-format = true
-# # formatter = { command = "clangd", args = [] }
-# # language-servers = ["clangd"]
-
-# # [[language]]
-# # name = "cpp"
-# # auto-format = true
-# # formatter = { command = "clangd", args = [] }
-# # language-servers = ["clangd"]
-
-# # [[language]]
-# # name = "lua"
-# # auto-format = true
-# # formatter = { command = "lua-language-server", args = [] }
-# # language-servers = ["lua-language-server"]
-
-# # [[language]]
-# # name = "bash"
-# # auto-format = true
-# # formatter = { command = "bash-language-server", args = [] }
-# # language-servers = ["bash-language-server"]
+[[language]]
+name = "astro"
+auto-format = true
+# formatter = { command = "prettier", args = ["--parser", "astro"] }
