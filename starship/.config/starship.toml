@@ -1,4 +1,4 @@
-"$schema" = 'https://starship.rs/config-schema.json'
+"$schema" = "https://starship.rs/config-schema.json"
 
 format = """
 [ ](bg:bg_base)\
@@ -29,7 +29,7 @@ $line_break\
 $character
 """
 
-palette = 'pastel'
+palette = "pastel"
 
 [palettes.catppuccin_mocha]
 rosewater = "#f5e0dc"
@@ -109,13 +109,13 @@ Pop = ""
 show_always = true
 style_user = "fg:txt_base bg:bg_base"
 style_root = "fg:txt_base bg:bg_base"
-format = '[ $user ]($style)'
+format = "[ $user ]($style)"
 
 [sudo]
 disabled = false
 style = "fg:txt_base bg:bg_base"
-format = '[$symbol]($style)'
-symbol = '󱕵 '
+format = "[$symbol]($style)"
+symbol = "󱕵 "
 
 [directory]
 style = "fg:txt_emphasis bg:bg_emphasis"
@@ -134,20 +134,20 @@ truncation_length = 3
 [git_branch]
 symbol = ""
 style = "bg:bg_accent"
-format = '[[ $symbol $branch ](fg:txt_accent bg:bg_accent)]($style)'
+format = "[[ $symbol $branch ](fg:txt_accent bg:bg_accent)]($style)"
 
 [git_status]
 style = "bg:bg_accent"
-format = '[[($all_status$ahead_behind )](fg:txt_accent bg:bg_accent)]($style)'
+format = "[[($all_status$ahead_behind )](fg:txt_accent bg:bg_accent)]($style)"
 
 [status]
 disabled = false
 map_symbol = true
-style = 'bg:bg_base'
-symbol = '[✗](bold fg:color_error bg:bg_base)'
-sigint_symbol = '[󰜺](bold fg:color_warning bg:bg_base)'
-success_symbol = '[](bold fg:color_success bg:bg_base)'
-format = '[ $symbol  ]($style)'
+style = "bg:bg_base"
+symbol = "[✗](bold fg:color_error bg:bg_base)"
+sigint_symbol = "[󰜺](bold fg:color_warning bg:bg_base)"
+success_symbol = "[](bold fg:color_success bg:bg_base)"
+format = "[ $symbol  ]($style)"
 
 [cmd_duration]
 disabled = false
@@ -160,50 +160,50 @@ disabled = false
 
 [character]
 disabled = false
-success_symbol = '[ ](bold fg:color_success)'
-error_symbol = '[ ](bold fg:color_error)'
+success_symbol = "[ ](bold fg:color_success)"
+error_symbol = "[ ](bold fg:color_error)"
 
 [nodejs]
 symbol = ""
 style = "fg:txt_subtle bg:bg_subtle"
-format = '[ $symbol ]($style)'
+format = "[ $symbol ]($style)"
 
 [c]
 symbol = " "
 style = "fg:txt_subtle bg:bg_subtle"
-format = '[ $symbol ]($style)'
+format = "[ $symbol ]($style)"
 
 [rust]
 symbol = ""
 style = "fg:txt_subtle bg:bg_subtle"
-format = '[ $symbol ]($style)'
+format = "[ $symbol ]($style)"
 
 [golang]
 symbol = ""
 style = "fg:txt_subtle bg:bg_subtle"
-format = '[ $symbol ]($style)'
+format = "[ $symbol ]($style)"
 
 [php]
 symbol = ""
 style = "fg:txt_subtle bg:bg_subtle"
-format = '[ $symbol ]($style)'
+format = "[ $symbol ]($style)"
 
 [java]
 symbol = " "
 style = "fg:txt_subtle bg:bg_subtle"
-format = '[ $symbol ]($style)'
+format = "[ $symbol ]($style)"
 
 [kotlin]
 symbol = ""
 style = "fg:txt_subtle bg:bg_subtle"
-format = '[ $symbol ]($style)'
+format = "[ $symbol ]($style)"
 
 [haskell]
 symbol = ""
 style = "fg:txt_subtle bg:bg_subtle"
-format = '[ $symbol ]($style)'
+format = "[ $symbol ]($style)"
 
 [python]
 symbol = ""
 style = "fg:txt_subtle bg:bg_subtle"
-format = '[ $symbol ]($style)'
+format = "[ $symbol ]($style)"
