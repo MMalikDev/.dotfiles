@@ -124,7 +124,7 @@ keys.add {
 keys.add {
   {
     mode = { 'i', 'x', 'n', 's' },
-    { '<C-w>', '<cmd>w1<cr><esc>', desc = 'Save File' },
+    { '<C-w>', '<cmd>w!<cr><esc>', desc = 'Save File' },
   },
   {
     mode = { 'n', 'v', 't' },
@@ -274,7 +274,7 @@ keys.add {
   { '<leader>ff', function() Snacks.picker.files { hidden = true } end, desc = 'Find Files' },
   { '<leader>fg', function() Snacks.picker.git_files() end, desc = 'Find Git Files' },
   { '<leader>sr', function() find_replace.open() end, desc = 'Search & Replace' },
-  { '<leader>fR', function() Snacks.picker.recent() end, desc = 'Recent' },
+  { '<leader>fr', function() Snacks.picker.recent() end, desc = 'Recent' },
   { '<leader>fp', function() Snacks.picker.projects() end, desc = 'Projects' },
   { '<leader>fc', function() Snacks.picker.files { cwd = vim.fn.stdpath 'config', hidden = true } end, desc = 'Find Config File' },
   { '<leader>fn', ':e untitled<CR>', desc = 'New File' },

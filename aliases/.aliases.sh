@@ -125,3 +125,4 @@ alias zls='zellij attach $(zellij ls | fzf --height=10 --ansi | cut -d " " -f 1)
 alias lswake='bat /proc/acpi/wakeup | rg enabled | cut -d " " -f4- | cut -d":" -f3- | fzf --preview-window wrap --height=10 --wrap --preview="lspci | rg {}"'
 
 alias reload-dev='export PROJECT_NAME=$(basename "$PWD") && docker compose -f .devcontainer/compose.yaml --profile arch up -d --build --force-recreate'
+
