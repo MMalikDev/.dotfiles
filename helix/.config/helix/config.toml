@@ -14,6 +14,9 @@ mouse = true
 true-color = true
 jump-label-alphabet = "asdfzxcqwervtgbyhnujmikolp"
 
+[editor.soft-wrap]
+enable = true
+
 [editor.cursor-shape]
 insert = "bar"
 normal = "block"

@@ -14,6 +14,9 @@ mouse = true
 true-color = true
 jump-label-alphabet = "asdfzxcqwervtgbyhnujmikolp"
 
+[editor.soft-wrap]
+enable = true
+
 [editor.cursor-shape]
 insert = "bar"
 normal = "block"
@@ -43,8 +46,8 @@ C-w = ":w!"
 C-w = ":w!"
 y = ["yank", ":clipboard-yank"]
 C-A-y = [
-  ":echo %sh{ echo '@%{buffer_name}#%{selection_line_start}-#L%{selection_line_end} %{selection}' | dms clipboard copy }",
-  ":echo \"Copied @%{buffer_name}#%{selection_line_start}-#L%{selection_line_end}\"",
+  ":echo %sh{ echo '@%{buffer_name}#L%{selection_line_start}-%{selection_line_end}' | dms clipboard copy }",
+  ":echo \"Copied @%{buffer_name}#L%{selection_line_start}-%{selection_line_end}\"",
 ]
 
 [keys.normal]
@@ -58,8 +61,8 @@ tab = ":buffer-next"
 Y = "@vgly"
 y = ["yank", ":clipboard-yank"]
 C-A-y = [
-  ":echo %sh{ echo '@%{buffer_name}#%{selection_line_start}-#L%{selection_line_end} %{selection}' | dms clipboard copy }",
-  ":echo \"Copied @%{buffer_name}#%{selection_line_start}-#L%{selection_line_end}\"",
+  ":echo %sh{ echo '@%{buffer_name}#L%{selection_line_start}-%{selection_line_end}' | dms clipboard copy }",
+  ":echo \"Copied @%{buffer_name}#L%{selection_line_start}-%{selection_line_end}\"",
 ]
 
 [keys.normal.space]
