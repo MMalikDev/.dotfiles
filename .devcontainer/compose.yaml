@@ -8,12 +8,10 @@ networks:
 volumes:
   cache:
   local:
-  cargo:
-  npm:
 
 services:
   devcontainer:
-    profiles: [ "code" ]
+    profiles: ["code"]
     build: .
     container_name: devcontainer
     image: vscode_devcontainer
@@ -26,7 +24,7 @@ services:
       workspaces:
 
   debian-container:
-    profiles: [ "debian" ]
+    profiles: ["debian"]
     build:
       context: .
       target: dev
@@ -40,14 +38,12 @@ services:
       - $HOME/.gitconfig:/home/dev/.gitconfig:ro
       - cache:/home/dev/.cache
       - local:/home/dev/.local
-      - cargo:/home/dev/.cargo
-      - npm:/home/dev/.npm
 
     networks:
       workspaces:
 
   arch-container:
-    profiles: [ "arch" ]
+    profiles: ["arch"]
     build:
       context: .
       target: arch
@@ -61,8 +57,6 @@ services:
       - $HOME/.gitconfig:/home/dev/.gitconfig:ro
       - cache:/home/dev/.cache
       - local:/home/dev/.local
-      - cargo:/home/dev/.cargo
-      - npm:/home/dev/.npm
 
     networks:
       workspaces:
