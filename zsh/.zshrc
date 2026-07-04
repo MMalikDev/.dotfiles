@@ -79,6 +79,7 @@ eval "$(zoxide init zsh)"
 
 # Aliases
 test -f ~/.aliases.sh && . ~/.aliases.sh
+export EDITOR=helix
 
 # Load Completions
 autoload -Uz compinit

@@ -126,6 +126,8 @@ alias update="sudo pacman -Syu" # Update Packages
 # Fuzzy Finder
 alias fzp="fzf --preview='bat --color=always {}'"
 alias zls='zellij attach $(zellij ls | fzf --height=10 --ansi | cut -d " " -f 1)'
+alias zt='zellij action rename-tab " "'
+alias zp='zellij action rename-pane "!"'
 
 alias lswake='bat /proc/acpi/wakeup | rg enabled | cut -d " " -f4- | cut -d":" -f3- | fzf --preview-window wrap --height=10 --wrap --preview="lspci | rg {}"'
 
