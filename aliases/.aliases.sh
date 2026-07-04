@@ -83,6 +83,7 @@ alias size="du -hd 1 . | sort -hr"            # List folder sizes
 
 alias distro='lsb_release -d'                        # Show Distro (Alt)
 alias os='rg ^ID= /etc/os-release | cut -d "=" -f 2' # Show Distribution
+alias pls='echo "${PATH//:/\n}"'
 
 # Python
 alias py="python3"     # Python3 abbreviation

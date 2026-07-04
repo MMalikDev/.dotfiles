@@ -79,6 +79,7 @@ eval "$(zoxide init zsh)"
 
 # Aliases
 test -f ~/.aliases.sh && . ~/.aliases.sh
+test -f ~/.zshenv && . ~/.zshenv
 
 # Load Completions
 autoload -Uz compinit

@@ -22,8 +22,13 @@ alias dcu="docker compose up -d"          # Turn on docker services
 
 alias dpb="docker builder prune"        # Prune docker builds
 alias dp="echo y | docker system prune" # Prune docker system
+alias dps='docker ps --format "table {{.Image}}\t{{.ID}}\t{{.Names}}\t{{.Status}}\t{{.RunningFor}}"'
+
+alias lzd='lazydocker'
 
 # Git
+alias lg='lazygit'
+
 alias gf="git log --all --graph"                                # Git log verbose
 alias glf="git log --oneline --all --graph"                     # Git log simple verbose
 alias gl="git log --oneline"                                    # Git log
@@ -75,6 +80,7 @@ alias size="du -hd 1 . | sort -hr"            # List folder sizes
 
 alias distro='lsb_release -d'                        # Show Distro (Alt)
 alias os='rg ^ID= /etc/os-release | cut -d "=" -f 2' # Show Distribution
+alias pls='echo "${PATH//:/\n}"'
 
 # Python
 alias py="python3"     # Python3 abbreviation
@@ -108,3 +114,9 @@ alias update="sudo pacman -Syu" # Update Packages
 # Fuzzy Finder
 alias fzp="fzf --preview='bat --color=always {}'"
 alias zls='zellij attach $(zellij ls | fzf --height=10 --ansi | cut -d " " -f 1)'
+alias zt='zellij action rename-tab " "'
+alias zp='zellij action rename-pane "!"'
+
+alias lswake='bat /proc/acpi/wakeup | rg enabled | cut -d " " -f4- | cut -d":" -f3- | fzf --preview-window wrap --height=10 --wrap --preview="lspci | rg {}"'
+
+alias reload-dev='export PROJECT_NAME=$(basename "$PWD") && docker compose -f .devcontainer/compose.yaml --profile arch up -d --build --force-recreate'
