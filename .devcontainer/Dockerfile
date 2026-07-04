@@ -68,6 +68,8 @@ RUN pacman -Syu --noconfirm && \
   vscode-html-languageserver \ 
   vscode-json-languageserver \ 
   yaml-language-server \ 
+  lazydocker \
+  lazygit \
   sudo \
   && rm -rf /var/cache/pacman/pkg   
 
