@@ -1,8 +1,7 @@
 name: devcontainer
 
 networks:
-  workspaces:
-    name: proxy
+  proxy:
     driver: bridge
 
 volumes:
@@ -22,7 +21,7 @@ services:
       - ..:/workspaces:cached
 
     networks:
-      workspaces:
+      proxy:
 
   debian-container:
     profiles:
@@ -42,7 +41,7 @@ services:
       - local:/home/dev/.local
 
     networks:
-      workspaces:
+      proxy:
 
   arch-container:
     profiles:
@@ -62,4 +61,4 @@ services:
       - local:/home/dev/.local
 
     networks:
-      workspaces:
+      proxy:
