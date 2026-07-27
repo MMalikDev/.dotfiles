@@ -2,4 +2,4 @@
 
 export EDITOR=helix
 
-# export PATH=$PATH:$HOME/bin
+export PATH=$PATH:$HOME/.cargo/bin

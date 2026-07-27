@@ -37,6 +37,7 @@ RUN pacman -Syu --noconfirm && \
   fd \
   fzf \
   git \
+  git-delta \
   helix \
   jq \
   less \
