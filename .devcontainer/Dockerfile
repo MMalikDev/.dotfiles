@@ -17,6 +17,8 @@ RUN export DEBIAN_FRONTEND=noninteractive && apt update && apt install -y \
   python3 \
   nodejs \
   npm \
+  just \
+  just-lsp \
   sudo \
   && rm -rf /var/lib/apt/lists/*
 
@@ -57,6 +59,8 @@ RUN pacman -Syu --noconfirm && \
   biome \
   bun \
   npm \
+  just \
+  just-lsp \
   prettier \
   shfmt \
   bash-language-server \

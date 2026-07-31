@@ -14,6 +14,9 @@ alias r="bash run.sh"     # Run project
 alias re="bash reset.sh"  # Reset project
 alias run="re && r"       # Reset & run project
 
+alias j="just"           # Run task with Just
+alias jf="just --choose" # Fuzzy select just recipe
+
 # Docker
 alias de="docker exec -it" # Run command in docker container
 
