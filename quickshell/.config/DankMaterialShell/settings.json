@@ -1,20 +1,27 @@
 {
-  "currentThemeName": "dynamic",
-  "currentThemeCategory": "dynamic",
-  "customThemeFile": "",
-  "registryThemeVariants": {},
+  "currentThemeName": "custom",
+  "currentThemeCategory": "registry",
+  "customThemeFile": "/home/malik/.config/DankMaterialShell/themes/catppuccin/theme.json",
+  "registryThemeVariants": {
+    "catppuccin": {
+      "dark": {
+        "flavor": "mocha",
+        "accent": "blue"
+      }
+    }
+  },
   "matugenScheme": "scheme-content",
   "matugenContrast": 0,
   "runUserMatugenTemplates": true,
   "matugenTargetMonitor": "",
   "popupTransparency": 1,
   "dockTransparency": 1,
-  "widgetBackgroundColor": "sch",
-  "widgetBackgroundCustomColor": "#6750A4",
+  "widgetBackgroundColor": "s",
+  "widgetBackgroundCustomColor": "#000000",
   "widgetBackgroundCustomStrength": 0.5,
   "widgetColorMode": "default",
   "controlCenterTileColorMode": "primary",
-  "buttonColorMode": "primary",
+  "buttonColorMode": "primaryContainer",
   "cornerRadius": 12,
   "niriLayoutGapsOverride": 4,
   "niriLayoutRadiusOverride": 8,
@@ -297,7 +304,7 @@
       "enabled": true
     }
   ],
-  "networkPreference": "wifi",
+  "networkPreference": "ethernet",
   "iconThemeDark": "System Default",
   "iconThemeLight": "System Default",
   "iconThemePerMode": false,
@@ -346,7 +353,7 @@
   "notepadEdgeGap": 0,
   "soundsEnabled": true,
   "useSystemSoundTheme": true,
-  "soundLogin": false,
+  "soundLogin": true,
   "soundNewNotification": true,
   "soundVolumeChanged": false,
   "soundPluggedIn": true,
@@ -384,7 +391,7 @@
   "qtThemingEnabled": false,
   "syncModeWithPortal": true,
   "terminalsAlwaysDark": true,
-  "muxType": "tmux",
+  "muxType": "zellij",
   "muxUseCustomCommand": false,
   "muxCustomCommand": "",
   "muxSessionFilter": "",
@@ -538,7 +545,7 @@
   "updaterUseCustomCommand": false,
   "updaterCustomCommand": "",
   "updaterTerminalAdditionalParams": "",
-  "updaterIntervalSeconds": 1800,
+  "updaterIntervalSeconds": 86400,
   "updaterIncludeFlatpak": true,
   "updaterAllowAUR": true,
   "updaterIgnoredPackages": [],
@@ -769,14 +776,16 @@
       "trigger": "?"
     }
   },
-  "clipboardClickToPaste": false,
+  "clipboardClickToPaste": true,
   "clipboardEnterToPaste": false,
   "clipboardRememberTypeFilter": false,
   "clipboardTypeFilter": "all",
   "clipboardVisibleEntryActions": [
     "pin",
     "edit",
-    "delete"
+    "delete",
+    "copy",
+    "paste"
   ],
   "launcherPluginVisibility": {},
   "launcherPluginOrder": [],
