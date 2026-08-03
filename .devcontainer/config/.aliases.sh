@@ -11,6 +11,9 @@ alias r="bash run.sh"     # Run project
 alias re="bash reset.sh"  # Reset project
 alias run="re && r"       # Reset & run project
 
+alias j="just"           # Run task with Just
+alias jf="just --choose" # Fuzzy select just recipe
+
 # Docker
 alias de="docker exec -it" # Run command in docker container
 
@@ -66,10 +69,10 @@ alias gi="git init"                             # Init git repo
 alias gitcb="code /etc/profile.d/git-prompt.sh" # Git bash edit
 
 # System
-alias ls1='lsi -1As type'              # List ls
-alias ls='eza'                         # Better ls
-alias lsi='eza --color=always --icons' # Icons ls
-alias lsl='lsi -lAs type'              # Detailed ls
+alias ls1='lsi -1As type'                     # List ls
+alias ls='eza'                                # Better ls
+alias lsi='eza --color=always --icons=always' # Icons ls
+alias lsl='lsi -lAs type'                     # Detailed ls
 
 alias cd='z'                                  # Better cd
 alias cls="clear"                             # Habit accommodation
