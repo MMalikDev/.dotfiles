@@ -4,7 +4,9 @@ format = """
 [ ](bg:bg_base)\
 $os\
 $username\
+$hostname\
 $sudo\
+[ ](fg:txt_base bg:bg_base)\
 [](fg:bg_base bg:bg_emphasis)\
 $directory\
 [](fg:bg_emphasis bg:bg_accent)\
@@ -109,13 +111,21 @@ Pop = ""
 show_always = true
 style_user = "fg:txt_base bg:bg_base"
 style_root = "fg:txt_base bg:bg_base"
-format = "[ $user ]($style)"
+format = "[ $user]($style)"
+
+[hostname]
+disabled = false
+format = "[$ssh_symbol$hostname]($style)"
+ssh_only = true
+ssh_symbol = "@"
+style = "fg:txt_base bg:bg_base"
+trim_at = "."
 
 [sudo]
 disabled = false
 style = "fg:txt_base bg:bg_base"
 format = "[$symbol]($style)"
-symbol = "󱕵 "
+symbol = " 󱕵"
 
 [directory]
 style = "fg:txt_emphasis bg:bg_emphasis"
