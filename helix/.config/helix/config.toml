@@ -69,7 +69,7 @@ C-A-y = [
 [keys.normal.space]
 C-c = ":config-open"
 "=" = ":format"
-space = "buffer_picker"
+space = "file_picker"
 
 [keys.normal.space.b]
 d = ":buffer-close!"

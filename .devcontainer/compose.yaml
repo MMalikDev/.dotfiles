@@ -2,7 +2,8 @@ name: devcontainer
 
 networks:
   proxy:
-    driver: bridge
+    name: ${NETWORK_NAME:-proxy}
+    external: ${NETWORK_EXTERNAL:-false}
 
 volumes:
   cache:
