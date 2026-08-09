@@ -71,43 +71,44 @@ alias dev := devcontainer_arch
 [group('dev')]
 devcontainer_arch: load_arch
     @just _run docker compose -f .devcontainer/compose.yaml \
-     --profile arch exec -it arch-container zsh 
+     --profile arch exec -it arch-container zsh
 
-alias id := init-desktop
+alias id := init_desktop
 # Initialize a new desktop install setup
 [group('initialize')]
-init-desktop:
-    @just pacman-update
-    @just pacman-default-install
-    @just stow-all-config       
-    @just install_aur_manager   
+init_desktop:
+    @just pacman_update
+    @just pacman_default_install
+    @just stow_all_config
+    @just install_aur_manager
     @just install_browser
+    @just enable_desktop_apps
 
-alias is := init-server
+alias is := init_server
 # Initialize a new server install setup
 [group('initialize')]
-init-server:
-    @just pacman-update
-    @just pacman-cli-install
-    @just pacman-dev-install
-    @just pacman-docker-install
-    @just stow-cli-config       
+init_server:
+    @just pacman_update
+    @just pacman_cli_install
+    @just pacman_dev_install
+    @just pacman_docker_install
+    @just stow_cli_config
 
-alias u := pacman-update
+alias u := pacman_update
 # Update all pacman packages
 [group('setup')]
-pacman-update:
+pacman_update:
     @just _msg "Updating packages..."
     @just _run sudo pacman -Syu
 
-alias p := pacman-default-install
+alias p := pacman_default_install
 # Install default pacman packages
 [group('setup')]
-pacman-default-install:
-    @just pacman-dev-install
-    @just pacman-docker-install
-    @just pacman-desktop-install
-    @just pacman-vm-install
+pacman_default_install:
+    @just pacman_dev_install
+    @just pacman_docker_install
+    @just pacman_desktop_install
+    @just pacman_vm_install
 
 # Sync files between directory
 [group('data')]
@@ -118,10 +119,10 @@ _push_file src dest:
 _pull_file src dest:
     @just _run rsync -PHav "$src" "$dest"
 
-alias push := push-local-data
+alias push := push_local_data
 # Push local data to backup
 [group('data')]
-push-local-data:
+push_local_data:
     #!/bin/bash
     set -euo pipefail
     if [[ ! -d "$BACKUP_DIRECTORY" ]]; then
@@ -141,10 +142,10 @@ push-local-data:
     just _push_file ~/.dotfiles "$BACKUP_DIRECTORY"
     just _push_file ~/.ssh      "$BACKUP_DIRECTORY"
 
-alias pull := pull-backup-data
+alias pull := pull_backup_data
 # Pull backup data to local
 [group('data')]
-pull-backup-data:
+pull_backup_data:
     #!/bin/bash
     set -euo pipefail
     if [[ ! -d "$BACKUP_DIRECTORY" ]]; then
@@ -164,12 +165,12 @@ pull-backup-data:
     just _pull_file "$BACKUP_DIRECTORY/.dotfiles/" ~/.dotfiles
     just _pull_file "$BACKUP_DIRECTORY/.ssh/"      ~/.ssh
 
-alias s := stow-all-config
+alias s := stow_all_config
 # Stow all config files
 [group('setup')]
-stow-all-config:
-    @just stow-cli-config
-    @just stow-desktop-config
+stow_all_config:
+    @just stow_cli_config
+    @just stow_desktop_config
 
 alias a := install_aur_manager
 # Install AUR Package manager
@@ -196,10 +197,17 @@ alias b := install_browser
 install_browser:
     @just _run paru -Sy --needed brave-bin
 
-alias sc := stow-cli-config
+alias e := enable_desktop_apps
+# Enable desktop application on startup
+[group('setup')]
+enable_desktop_apps:
+    @just _run sudo systemctl status ly@tty1.service
+    @just _run systemctl --user enable dms
+
+alias sc := stow_cli_config
 # Stow CLI config files
 [group('stow')]
-stow-cli-config:
+stow_cli_config:
     @just _msg "Applying CLI environment config"
     @just _run mkdir -p ~/.config
     @just _run mkdir -p ~/.ssh
@@ -211,13 +219,13 @@ stow-cli-config:
         ssh \
         starship \
         zellij \
-        zsh 
-    @just _run git restore .    
+        zsh
+    @just _run git restore .
 
-alias sd := stow-desktop-config
+alias sd := stow_desktop_config
 # Stow desktop config files
 [group('stow')]
-stow-desktop-config:
+stow_desktop_config:
     @just _run mkdir -p ~/.config
     @just _msg "Applying desktop environment config"
     @just _run stow --adopt \
@@ -225,12 +233,12 @@ stow-desktop-config:
         mpv \
         niri \
         quickshell \
-        xdg 
-    @just _run git restore .    
+        xdg
+    @just _run git restore .
 
 # Install CLI pacman packages
 [group('pacman')]
-pacman-cli-install:
+pacman_cli_install:
     @just _msg "Installing CLI packages..."
     @just _run sudo pacman -S --needed \
         bat \
@@ -257,7 +265,7 @@ pacman-cli-install:
 
 # Install dev pacman
 [group('pacman')]
-pacman-dev-install:
+pacman_dev_install:
     @just _msg "Installing dev packages..."
     @just _run sudo pacman -S --needed \
         dos2unix \
@@ -268,7 +276,7 @@ pacman-dev-install:
 
 # Install docker pacman
 [group('pacman')]
-pacman-docker-install:
+pacman_docker_install:
     @just _msg "Installing docker packages..."
     @just _run sudo pacman -S --needed \
         docker \
@@ -277,10 +285,11 @@ pacman-docker-install:
 
 # Install desktop pacman
 [group('pacman')]
-pacman-desktop-install:
+pacman_desktop_install:
     @just _msg "Installing desktop packages..."
     @just _run sudo pacman -S --needed \
         base-devel \
+        dgop \
         dms-shell \
         kitty \
         ly \
@@ -290,11 +299,11 @@ pacman-desktop-install:
         noto-fonts \
         noto-fonts-cjk \
         noto-fonts-emoji \
-        quickshell 
+        quickshell
 
 # Install VM pacman
 [group('pacman')]
-pacman-vm-install:
+pacman_vm_install:
     @just _msg "Installing VM packages..."
     @just _run sudo pacman -S --needed \
         virt-manager \
