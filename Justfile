@@ -310,3 +310,29 @@ pacman_vm_install:
         qemu-full \
         libvirt \
         dnsmasq
+
+alias d := start_docker
+# Start Docker
+[group('hypervisor')]
+start_docker:
+    @just _run sudo systemctl start docker.service
+
+alias vms := setup_vm
+# Setup base configuation to start using VM
+[group('hypervisor')]
+setup_vm:
+    @just _run sudo systemctl start libvirtd.service
+    @just _run sudo virsh net-autostart default
+    @just _run sudo virsh net-list --all
+    @just _run sudo usermod -aG libvirt $USER
+    @just _run sudo systemctl stop \
+     libvirtd.service \
+     libvirtd.socket \
+     libvirtd-ro.socket \
+     libvirtd-admin.socket
+alias vm := start_vm
+# Start apps needed to use VM
+[group('hypervisor')]
+start_vm:
+    @just _run sudo systemctl start libvirtd.service
+    @just _run sudo virsh net-list --all
