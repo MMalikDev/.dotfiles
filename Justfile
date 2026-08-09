@@ -80,9 +80,9 @@ init_desktop:
     @just pacman_update
     @just pacman_default_install
     @just stow_all_config
+    @just enable_desktop_apps
     @just install_aur_manager
     @just install_browser
-    @just enable_desktop_apps
 
 alias is := init_server
 # Initialize a new server install setup
@@ -105,6 +105,7 @@ alias p := pacman_default_install
 # Install default pacman packages
 [group('setup')]
 pacman_default_install:
+    @just pacman_cli_install
     @just pacman_dev_install
     @just pacman_docker_install
     @just pacman_desktop_install
@@ -201,8 +202,8 @@ alias e := enable_desktop_apps
 # Enable desktop application on startup
 [group('setup')]
 enable_desktop_apps:
-    @just _run sudo systemctl status ly@tty1.service
     @just _run systemctl --user enable dms
+    @just _run sudo systemctl enable ly@tty1.service
 
 alias sc := stow_cli_config
 # Stow CLI config files
@@ -221,6 +222,7 @@ stow_cli_config:
         zellij \
         zsh
     @just _run git restore .
+    @just _run chsh -s /bin/zsh
 
 alias sd := stow_desktop_config
 # Stow desktop config files
@@ -254,14 +256,15 @@ pacman_cli_install:
         less \
         openssh \
         ripgrep \
+        rsync \
         starship \
         stow \
+        tree \
+        ttf-hack-nerd \
         ufw \
         zellij \
         zoxide \
-        zsh \
-        rsync \
-        ttf-hack-nerd
+        zsh
 
 # Install dev pacman
 [group('pacman')]
@@ -330,6 +333,7 @@ setup_vm:
      libvirtd.socket \
      libvirtd-ro.socket \
      libvirtd-admin.socket
+
 alias vm := start_vm
 # Start apps needed to use VM
 [group('hypervisor')]
