@@ -6,7 +6,6 @@ alias uel='find . -type f -exec dos2unix {} \;' # Convert end of line char to un
 alias hx='helix'
 
 # Project
-alias init="~/sh/init.sh" # Initialize project
 alias r="bash run.sh"     # Run project
 alias re="bash reset.sh"  # Reset project
 alias run="re && r"       # Reset & run project
@@ -120,6 +119,3 @@ alias zls='zellij attach $(zellij ls | fzf --height=10 --ansi | cut -d " " -f 1)
 alias zt='zellij action rename-tab " "'
 alias zp='zellij action rename-pane "!"'
 
-alias lswake='bat /proc/acpi/wakeup | rg enabled | cut -d " " -f4- | cut -d":" -f3- | fzf --preview-window wrap --height=10 --wrap --preview="lspci | rg {}"'
-
-alias reload-dev='export PROJECT_NAME=$(basename "$PWD") && docker compose -f .devcontainer/compose.yaml --profile arch up -d --build --force-recreate'
