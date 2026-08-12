@@ -81,7 +81,6 @@ init_desktop:
     @just pacman_default_install
     @just stow_all_config
     @just enable_desktop_apps
-    @just install_aur_manager
     @just install_browser
 
 alias is := init_server
@@ -189,6 +188,10 @@ alias a := install_aur_manager
 install_aur_manager:
     #!/bin/bash
     set -euo pipefail
+    if command -v paru > /dev/null 2>&1 ]; then
+        just _skip_msg "install_aur_manager" "paru already installed"
+        exit 0
+    fi
     just _run sudo pacman -S --needed base-devel
     if [[ ! -d paru ]]; then
         just _run git clone https://aur.archlinux.org/paru.git
@@ -205,7 +208,7 @@ install_aur_manager:
 alias b := install_browser
 # Install web browser from AUR
 [group('setup')]
-install_browser:
+install_browser: install_aur_manager
     @just _run paru -Sy --needed brave-bin
 
 alias e := enable_desktop_apps
