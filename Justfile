@@ -173,6 +173,16 @@ stow_all_config:
     @just stow_cli_config
     @just stow_desktop_config
 
+alias g := install_steam
+# Add multilib to pacman and install Steam
+[group('setup')]
+install_steam:
+    just _run sudo sed -i '/^# *\[multilib\]/{s/^# *//; n; s/^# *//}' /etc/pacman.conf
+    just _run sudo pacman -Syu
+    just _run sudo pacman -S --needed xwayland-satellite
+    just _run sudo pacman -S --needed steam
+    just _msg
+
 alias a := install_aur_manager
 # Install AUR Package manager
 [group('setup')]
