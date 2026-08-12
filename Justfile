@@ -301,11 +301,13 @@ pacman_docker_install:
 pacman_desktop_install:
     @just _msg "Installing desktop packages..."
     @just _run sudo pacman -S --needed \
+        adw-gtk-theme \
         base-devel \
         dgop \
         dms-shell \
         kitty \
         ly \
+        matugen \
         mpv \
         nautilus \
         niri \
