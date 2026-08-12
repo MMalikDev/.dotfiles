@@ -305,6 +305,7 @@ pacman_desktop_install:
         base-devel \
         dgop \
         dms-shell \
+        qt6ct \
         kitty \
         ly \
         matugen \
