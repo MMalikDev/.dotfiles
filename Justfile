@@ -21,7 +21,7 @@ _default:
     @just --list --unsorted
 _run +cmd:
     #!/bin/bash
-    set -uo pipefail
+    set -euo pipefail
     #  "+cmd"
     printf "\n{{ BOLD }}{{ CYAN }} \uf054 %s{{ NORMAL }}\n\n" "$*" >&2
     if "$@"; then
@@ -178,7 +178,7 @@ alias a := install_aur_manager
 [group('setup')]
 install_aur_manager:
     #!/bin/bash
-    set -uo pipefail
+    set -euo pipefail
     just _run sudo pacman -S --needed base-devel
     if [[ ! -d paru ]]; then
         just _run git clone https://aur.archlinux.org/paru.git
