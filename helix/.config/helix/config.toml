@@ -76,6 +76,7 @@ d = ":buffer-close!"
 o = ":buffer-close-others"
 O = ":buffer-close-others!"
 w = ":write-buffer-close"
+b = "buffer_picker"
 
 [keys.normal.space.q]
 e = ":q!"
