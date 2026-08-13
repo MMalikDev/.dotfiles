@@ -330,11 +330,17 @@ pacman_vm_install:
         libvirt \
         dnsmasq
 
-alias d := start_docker
+alias d := docker_up
 # Start Docker
 [group('hypervisor')]
-start_docker:
+docker_up:
     @just _run sudo systemctl start docker.service
+alias dd := docker_down
+# Down Docker engine and reset interal ip tables
+[group('hypervisor')]
+docker_down:
+    @just _run sudo systemctl stop docker.service docker.socket
+    @just _run sudo nft flush ruleset
 
 alias vms := setup_vm
 # Setup base configuation to start using VM
@@ -349,7 +355,6 @@ setup_vm:
      libvirtd.socket \
      libvirtd-ro.socket \
      libvirtd-admin.socket
-
 alias vm := start_vm
 # Start apps needed to use VM
 [group('hypervisor')]
