@@ -113,11 +113,11 @@ pacman_default_install:
 # Sync files between directory
 [group('data')]
 _push_file src dest:
-    @just _run rsync -PHav --delete-after --delete-excluded --exclude={'.venv','node_modules','target','__pycache__'} "$src" "$dest"
+    @just _run sudo rsync -PHav --delete-after --delete-excluded --exclude={'.venv','node_modules','target','__pycache__','.svelte-kit'} "$src" "$dest"
 # Sync files between directory
 [group('data')]
 _pull_file src dest:
-    @just _run rsync -PHav "$src" "$dest"
+    @just _run sudo rsync -PHav "$src" "$dest"
 
 alias push := push_local_data
 # Push local data to backup
