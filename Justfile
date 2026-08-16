@@ -180,7 +180,7 @@ install_steam:
     just _run sudo pacman -Syu
     just _run sudo pacman -S --needed xwayland-satellite
     just _run sudo pacman -S --needed steam
-    just _msg
+    just _msg 'Run "sudo systemctl reboot" if this is the first time running this task'
 
 alias a := install_aur_manager
 # Install AUR Package manager
