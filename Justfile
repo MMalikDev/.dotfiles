@@ -257,7 +257,9 @@ pacman_cli_install:
     @just _msg "Installing CLI packages..."
     @just _run sudo pacman -S --needed \
         bat \
+        btop \
         eza \
+        fastfetch \
         fd \
         fzf \
         git \
@@ -298,6 +300,7 @@ pacman_docker_install:
         docker \
         docker-buildx \
         docker-compose
+    @just _run sudo usermod -aG docker $USER
 
 # Install desktop pacman
 [group('pacman')]
