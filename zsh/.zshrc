@@ -66,11 +66,12 @@ zstyle ':completion:*' matcher-list 'm:{a-z}={A-Za-z}'
 zstyle ':completion:*' list-colors "${(s.:.)LS_COLORS}"
 zstyle ':completion:*' menu no
 zstyle ':fzf-tab:complete:cd:*' fzf-preview 'eza -1HAs type --icons --color=always $realpath'
-zstyle ':fzf-tab:complete:ls:*' fzf-preview 'eza -1HAs type --icons --color=always $realpath'
 zstyle ':fzf-tab:complete:cp:*' fzf-preview 'eza -1HAs type --icons --color=always $realpath'
-zstyle ':fzf-tab:complete:mv:*' fzf-preview 'eza -1HAs type --icons --color=always $realpath'
-zstyle ':fzf-tab:complete:z:*' fzf-preview 'eza -1HAs type --icons --color=always $realpath'
 zstyle ':fzf-tab:complete:eza:*' fzf-preview 'eza -1HAs type --icons --color=always $realpath'
+zstyle ':fzf-tab:complete:ls:*' fzf-preview 'eza -1HAs type --icons --color=always $realpath'
+zstyle ':fzf-tab:complete:mv:*' fzf-preview 'eza -1HAs type --icons --color=always $realpath'
+zstyle ':fzf-tab:complete:rsync:*' fzf-preview 'eza -1HAs type --icons --color=always $realpath'
+zstyle ':fzf-tab:complete:z:*' fzf-preview 'eza -1HAs type --icons --color=always $realpath'
 
 # Shell Intergration
 eval "$(fzf --zsh)"
