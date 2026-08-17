@@ -76,6 +76,8 @@ zstyle ':fzf-tab:complete:z:*' fzf-preview 'eza -1HAs type --icons --color=alway
 # Shell Intergration
 eval "$(fzf --zsh)"
 eval "$(zoxide init zsh)"
+
+PROMPT='%F{green}%n@%m%f %F{blue}%~%f > '
 [[ "$TTY" != /dev/tty* ]] && eval "$(starship init zsh)"
 
 # Aliases
