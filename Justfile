@@ -235,7 +235,7 @@ stow_cli_config:
         zellij \
         zsh
     @just _run git restore .
-    @just _run rg "zsh$" /etc/passwd | rg "$(whoami)" || chsh -s /bin/zsh
+    @just _run bash -c 'rg "zsh$" /etc/passwd | rg "$(whoami)" || chsh -s "$(which zsh)"'
     @just _run zsh -i -c '[[ -o interactive ]] && print zinit-ready'
 
 alias sd := stow_desktop_config
