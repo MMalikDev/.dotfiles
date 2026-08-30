@@ -647,8 +647,8 @@
           "id": "controlCenterButton",
           "enabled": true,
           "showAudioPercent": true,
-          "showBrightnessIcon": true,
-          "showBrightnessPercent": true,
+          "showBrightnessIcon": false,
+          "showBrightnessPercent": false,
           "showMicIcon": false,
           "showBatteryIcon": true
         },

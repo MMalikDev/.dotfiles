@@ -90,6 +90,7 @@ init_server:
     @just pacman_update
     @just pacman_cli_install
     @just pacman_dev_install
+    @just pacman_monitoring_install
     @just pacman_docker_install
     @just stow_cli_config
 
@@ -107,6 +108,7 @@ pacman_default_install:
     @just pacman_cli_install
     @just pacman_dev_install
     @just pacman_docker_install
+    @just pacman_monitoring_install
     @just pacman_desktop_install
     @just pacman_vm_install
 
@@ -258,17 +260,13 @@ pacman_cli_install:
     @just _msg "Installing CLI packages..."
     @just _run sudo pacman -S --needed \
         bat \
-        btop \
         eza \
-        fastfetch \
         fd \
         fzf \
         git \
         git-delta \
         helix \
         jq \
-        lazydocker \
-        lazygit \
         less \
         openssh \
         ripgrep \
@@ -281,6 +279,18 @@ pacman_cli_install:
         zellij \
         zoxide \
         zsh
+
+# Install monitoring pacman packages
+[group('pacman')]
+pacman_monitoring_install:
+    @just _msg "Installing monitoring packages..."
+    @just _run sudo pacman -S --needed \
+        btop \
+        fastfetch \
+        iotop \
+        lazydocker \
+        lazygit \
+        rustnet 
 
 # Install dev pacman
 [group('pacman')]
