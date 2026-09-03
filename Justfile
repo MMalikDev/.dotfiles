@@ -322,7 +322,7 @@ pacman_desktop_install:
         base-devel \
         dgop \
         dms-shell \
-        qt6ct \
+        gnome-disk-utility \
         kitty \
         ly \
         matugen \
@@ -332,6 +332,7 @@ pacman_desktop_install:
         noto-fonts \
         noto-fonts-cjk \
         noto-fonts-emoji \
+        qt6ct \
         quickshell
 
 # Install VM pacman
