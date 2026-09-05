@@ -1,4 +1,4 @@
-name: devcontainer
+name: devcontainer_${DEV_IMAGE:-code}
 
 networks:
   proxy:
@@ -7,7 +7,11 @@ networks:
 
 volumes:
   cache:
+    name: devcontainer_shared_cache
+    external: ${SHARED_VOLUMES:-false}
   local:
+    name: devcontainer_shared_local
+    external: ${SHARED_VOLUMES:-false}
 
 services:
   devcontainer:
@@ -32,8 +36,8 @@ services:
       target: dev
       args:
         WORKSPACE_NAME: ${PROJECT_NAME:-code}
-    image: dev_debian
-    container_name: dev_debian
+    image: dev_debian_${DEV_IMAGE:-code}:latest
+    container_name: dev_debian_${DEV_IMAGE:-code}
 
     volumes:
       - ../:/workspaces/${PROJECT_NAME:-code}:cached
@@ -52,8 +56,8 @@ services:
       target: arch
       args:
         WORKSPACE_NAME: ${PROJECT_NAME:-code}
-    image: dev_arch
-    container_name: dev_arch
+    image: dev_arch_${DEV_IMAGE:-code}:latest
+    container_name: dev_arch_${DEV_IMAGE:-code}
 
     volumes:
       - ../:/workspaces/${PROJECT_NAME:-code}:cached

@@ -7,7 +7,9 @@ set dotenv-filename := ".env"
 
 # -- ENVs
 
+NETWORK_NAME := env("NETWORK_NAME", "proxy")
 PROJECT_NAME := file_name(env("PWD", "devcontainer"))
+DEV_IMAGE := shell("basename \"${PWD:-devcontainer}\" | tr '[:upper:]' '[:lower:]' | tr -cd 'a-z0-9'")
 BACKUP_DIRECTORY := `echo ${BACKUP:-/run/media/$USER/Storage/Backup}`
 
 # -- Colors
@@ -53,12 +55,25 @@ load_env +cmd:
     get_secret(){ echo "$1"; }
     printf "\n{{ BOLD }}{{ DIM }} Loading env... {{ NORMAL }}\n\n" >&2
     if [ -f .env ]; then set -a; . ./.env; set +a; fi
+    docker network inspect "$NETWORK_NAME" >/dev/null 2>&1 && network_exist=true
+    export NETWORK_EXTERNAL="${network_exist:-false}"
+    docker volume inspect "devcontainer_shared_cache" >/dev/null 2>&1 \
+     && docker volume inspect "devcontainer_shared_local" >/dev/null 2>&1 \
+     && volumes_exists=true
+    export SHARED_VOLUMES="${volumes_exists:-false}"
     exec just _run "$@"
 
+# Build and start the Arch devcontainer
 [group('dev')]
 load_arch:
     @just load_env docker compose -f .devcontainer/compose.yaml \
-     --profile arch up -d --force-recreate --build
+     --profile arch up -d
+
+# Force build of devcontainer image and restart container
+[group('dev')]
+load_arch_rebuild:
+    @just load_env docker compose -f .devcontainer/compose.yaml \
+    --profile arch up -d --force-recreate --build
 
 # Bring down the devcontainer
 [group('dev')]
@@ -67,32 +82,33 @@ devcontainer_down:
      --profile arch --profile debian --profile code down
 
 alias dev := devcontainer_arch
+alias dev_arch := devcontainer_arch
 # Open a shell in the Arch devcontainer
 [group('dev')]
-devcontainer_arch: load_arch
+devcontainer_arch +cmd='zsh': load_arch
     @just _run docker compose -f .devcontainer/compose.yaml \
-     --profile arch exec -it arch-container zsh
+     --profile arch exec -it arch-container {{ cmd }}
 
 alias id := init_desktop
 # Initialize a new desktop install setup
 [group('initialize')]
 init_desktop:
-    @just pacman_update
-    @just pacman_default_install
-    @just stow_all_config
-    @just enable_desktop_apps
-    @just install_browser
+    @just pacman_update || true
+    @just pacman_default_install || true
+    @just stow_all_config || true
+    @just enable_desktop_apps || true
+    @just install_browser || true
 
 alias is := init_server
 # Initialize a new server install setup
 [group('initialize')]
 init_server:
-    @just pacman_update
-    @just pacman_cli_install
-    @just pacman_dev_install
-    @just pacman_monitoring_install
-    @just pacman_docker_install
-    @just stow_cli_config
+    @just pacman_update || true
+    @just pacman_cli_install || true
+    @just pacman_dev_install || true
+    @just pacman_monitoring_install || true
+    @just pacman_docker_install || true
+    @just stow_cli_config || true
 
 alias u := pacman_update
 # Update all pacman packages
@@ -290,7 +306,7 @@ pacman_monitoring_install:
         iotop \
         lazydocker \
         lazygit \
-        rustnet 
+        rustnet
 
 # Install dev pacman
 [group('pacman')]
