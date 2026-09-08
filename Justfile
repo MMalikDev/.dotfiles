@@ -121,14 +121,14 @@ alias fw := setup_firewall
 # Setup Firewall Rules
 [group('setup')]
 setup_firewall:
-    @just _run sudo ufw allow "WWW Full" # 80,443/tcp
-    @just _run sudo ufw allow SSH # 22/tcp
-    @just _run sudo ufw allow mDNS # 5353/udp
-    @just _run sudo ufw allow DNS # 53
-    @just _run sudo ufw allow ntp # 123
-    @just _run sudo ufw allow Steam
+    @just _run sudo ufw allow out "WWW Full" # 80,443/tcp
+    @just _run sudo ufw allow out SSH # 22/tcp
+    @just _run sudo ufw allow out mDNS # 5353/udp
+    @just _run sudo ufw allow out DNS # 53
+    @just _run sudo ufw allow out ntp # 123
+    @just _run sudo ufw allow out Steam
     @just _run sudo ufw default deny incoming
-    @just _run sudo ufw default allow outgoing
+    @just _run sudo ufw default deny outgoing
     @just _run sudo ufw enable
     @just _run sudo ufw status
 
