@@ -1,5 +1,5 @@
 # Configure global ENVs
 
-export EDITOR=helix
+export EDITOR=hx
 
 # export PATH=$PATH:$HOME/bin

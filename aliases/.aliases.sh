@@ -4,7 +4,7 @@ alias uel='find . -type f -exec dos2unix {} \;' # Convert end of line char to un
 
 # IDE
 alias nv="nvim"
-alias hx='helix'
+# alias hx='helix'
 alias code="code --profile VSCode"       # VSCode default profile
 alias codium="codium --profile VSCodium" # VSCodium default profile
 
@@ -77,6 +77,8 @@ alias ls='eza'                                # Better ls
 alias lsi='eza --color=always --icons=always' # Icons ls
 alias lsl='lsi -lAs type'                     # Detailed ls
 
+alias fd='fdfind'                             # Better find
+alias bat='batcat'                            # Debian alias patch
 alias cd='z'                                  # Better cd
 alias cls="clear"                             # Habit accommodation
 alias diffs="diff -y --suppress-common-lines" # Show deferences in columns
@@ -119,13 +121,13 @@ alias get="sudo apt install"                                                 # I
 alias show="apt show"                                                        # Packages Description
 alias update="sudo apt update && sudo apt upgrade -y && sudo apt autoremove" # Update Packages
 
-alias get="sudo nala install"                                                   # Install Packages
-alias show="nala show"                                                          # Packages Description
-alias update="sudo nala update && sudo nala upgrade -y && sudo nala autoremove" # Update Packages
+# alias get="sudo nala install"                                                   # Install Packages
+# alias show="nala show"                                                          # Packages Description
+# alias update="sudo nala update && sudo nala upgrade -y && sudo nala autoremove" # Update Packages
 
-alias get="sudo pacman -S"      # Install Packages
-alias show="pacman -Ss"         # Packages Description
-alias update="sudo pacman -Syu" # Update Packages
+# alias get="sudo pacman -S"      # Install Packages
+# alias show="pacman -Ss"         # Packages Description
+# alias update="sudo pacman -Syu" # Update Packages
 
 # Fuzzy Finder
 alias fzp="fzf --preview='bat --color=always {}'"
