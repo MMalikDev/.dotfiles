@@ -119,7 +119,7 @@ pacman_update:
 
 alias fw := setup_firewall
 # Setup Firewall Rules
-[group('setup')]
+[group('network')]
 setup_firewall:
     @just _run sudo ufw allow out "WWW Full" # 80,443/tcp
     @just _run sudo ufw allow out SSH # 22/tcp
@@ -134,9 +134,23 @@ setup_firewall:
 
 alias fwr := reset_firewall
 # Reset Firewall Rules
-[group('setup')]
+[group('network')]
 reset_firewall:
     @just _run sudo ufw --force reset
+
+alias vpn := install_vpn
+# Install VPN
+[group('network')]
+install_vpn:
+    @just _run sudo pacman -S --needed mullvad-vpn
+    @just _run sudo systemctl start mullvad-daemon.service
+    @just _run sudo systemctl status mullvad-daemon.service
+
+alias vpns := setup_vpn
+# Setup VPN
+[group('network')]
+setup_vpn:
+    @just _run sudo systemctl enable mullvad-daemon.service
 
 alias p := pacman_default_install
 # Install default pacman packages
