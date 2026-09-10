@@ -133,7 +133,7 @@ setup_firewall:
     # @just _run sudo ufw allow out Steam
     @just _run sudo ufw allow out on lo
     @just _run sudo ufw default deny incoming
-    @just _run sudo ufw default deny outgoing
+    @just _run sudo ufw default allow outgoing
     @just _run sudo ufw enable
     @just _run sudo ufw status
 
