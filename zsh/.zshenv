@@ -2,4 +2,5 @@
 
 export EDITOR=helix
 
+# export DMS_SHELL_DIR=~/.config/quickshell/dms
 # export PATH=$PATH:$HOME/bin
