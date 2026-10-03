@@ -392,10 +392,11 @@ pacman_desktop_install:
 pacman_vm_install:
     @just _msg "Installing VM packages..."
     @just _run sudo pacman -S --needed \
-        virt-manager \
-        qemu-full \
+        dnsmasq \
         libvirt \
-        dnsmasq
+        qemu-full \
+        virt-manager \
+        virt-viewer
 
 alias d := docker_up
 # Start Docker
