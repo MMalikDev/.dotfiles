@@ -17,6 +17,7 @@
   "cornerRadius": 12,
   "niriLayoutGapsOverride": 4,
   "niriLayoutRadiusOverride": 8,
+  "audioShowStreamDevices": true,
   "clockFormat": "12h",
   "padHours12Hour": true,
   "syncComponentAnimationSpeeds": false,
