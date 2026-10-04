@@ -127,7 +127,11 @@ setup_firewall:
     @just _run sudo ufw allow out 853/tcp # DoQ
     @just _run sudo ufw allow out DNS # 53
     @just _run sudo ufw allow out ntp # 123
+    @just _run sudo ufw allow out 61000 # Proxmox Spice
+    @just _run sudo ufw allow out 8006 # Proxmox
+    @just _run sudo ufw allow out 3128  # Spice
     # @just _run sudo ufw allow out Steam
+    @just _run sudo ufw allow out on lo
     @just _run sudo ufw default deny incoming
     @just _run sudo ufw default deny outgoing
     @just _run sudo ufw enable
