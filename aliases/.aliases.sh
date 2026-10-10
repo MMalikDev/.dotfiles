@@ -136,3 +136,6 @@ alias zp='zellij action rename-pane "!"'
 alias lswake='bat /proc/acpi/wakeup | rg enabled | cut -d " " -f4- | cut -d":" -f3- | fzf --preview-window wrap --height=10 --wrap --preview="lspci | rg {}"'
 
 alias reload-dev='export PROJECT_NAME=$(basename "$PWD") && docker compose -f .devcontainer/compose.yaml --profile arch up -d --build --force-recreate'
+
+alias copy='dms clipboard copy'
+alias paste='dms clipboard paste'
