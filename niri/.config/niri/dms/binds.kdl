@@ -7,6 +7,7 @@ binds {
     // === Application Launchers ===
     Mod+T hotkey-overlay-title="Open Terminal" { spawn "kitty"; }
     Mod+B hotkey-overlay-title="Open Browser" { spawn "brave"; }
+    Mod+G hotkey-overlay-title="Open Helium Browser" { spawn "helium-browser"; }
     Mod+E hotkey-overlay-title="Open File Explorer" { spawn "nautilus"; }
     Mod+P hotkey-overlay-title="Open Media Player" { spawn-sh "mpv --shuffle ~/Music/Video/{*,**/*}"; }
 
