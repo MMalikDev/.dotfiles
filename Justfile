@@ -121,6 +121,8 @@ alias fw := setup_firewall
 # Setup Firewall Rules
 [group('network')]
 setup_firewall:
+    @just _run sudo ufw allow in "WWW Full" # 80,443/tcp
+    @just _run sudo ufw allow in SSH # 22/tcp
     @just _run sudo ufw allow out "WWW Full" # 80,443/tcp
     @just _run sudo ufw allow out SSH # 22/tcp
     @just _run sudo ufw allow out 5353/udp # mDNS
@@ -130,7 +132,6 @@ setup_firewall:
     @just _run sudo ufw allow out 61000 # Proxmox Spice
     @just _run sudo ufw allow out 8006 # Proxmox
     @just _run sudo ufw allow out 3128  # Spice
-    # @just _run sudo ufw allow out Steam
     @just _run sudo ufw allow out on lo
     @just _run sudo ufw default deny incoming
     @just _run sudo ufw default allow outgoing
