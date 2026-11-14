@@ -97,7 +97,6 @@ init_desktop:
     @just pacman_default_install || true
     @just stow_all_config || true
     @just enable_desktop_apps || true
-    @just install_browser || true
 
 alias is := init_server
 # Initialize a new server install setup
@@ -263,11 +262,16 @@ install_aur_manager:
         rm -rI paru
     fi
 
-alias b := install_browser
-# Install web browser from AUR
-[group('setup')]
-install_browser: install_aur_manager
+alias bb := install_brave_browser
+# Install brave web browser from AUR
+[group('browser')]
+install_brave_browser: install_aur_manager
     @just _run paru -Sy --needed brave-bin
+alias bh := install_helium_browser
+# Install helium browser
+[group('browser')]
+install_helium_browser: install_aur_manager
+    @just _run paru -Sy --needed helium-browser-bin
 
 alias e := enable_desktop_apps
 # Enable desktop application on startup
@@ -329,6 +333,7 @@ pacman_cli_install:
         rsync \
         starship \
         stow \
+        superfile \
         tree \
         ttf-hack-nerd \
         ufw \
@@ -376,8 +381,7 @@ pacman_desktop_install:
     @just _run sudo pacman -S --needed \
         adw-gtk-theme \
         base-devel \
-        dgop \
-        dms-shell \
+        dux-shell \
         gnome-disk-utility \
         kitty \
         ly \
