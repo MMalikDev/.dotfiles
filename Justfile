@@ -136,6 +136,14 @@ setup_firewall:
     @just _run sudo ufw enable
     @just _run sudo ufw status
 
+alias fwp := setup_firewall_proxmox
+# Setup Firewall Rule for Proxmox Hypervisor
+[group('network')]
+setup_firewall_proxmox:
+    @just _run ufw allow in 3128 # Spice
+    @just _run ufw allow in 8006 # WebUI
+    @just _run ufw status
+
 alias fwr := reset_firewall
 # Reset Firewall Rules
 [group('network')]
